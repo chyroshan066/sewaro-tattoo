@@ -1,6 +1,153 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import localFont from "next/font/local";
+
+const oswald = localFont({
+  src: [
+    {
+      path: "../../public/fonts/oswald/Oswald-200.woff2",
+      weight: "200",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/oswald/Oswald-300.woff2",
+      weight: "300",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/oswald/Oswald-Regular.woff2",
+      weight: "400",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/oswald/Oswald-500.woff2",
+      weight: "500",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/oswald/Oswald-600.woff2",
+      weight: "600",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/oswald/Oswald-700.woff2",
+      weight: "700",
+      style: "normal"
+    },
+  ],
+  display: 'swap',
+  variable: '--font-roboto'
+});
+
+const raleway = localFont({
+  src: [
+    {
+      path: "../../public/fonts/raleway/Raleway-100.woff2",
+      weight: "100",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-200.woff2",
+      weight: "200",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-300.woff2",
+      weight: "300",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-Regular.woff2",
+      weight: "400",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-500.woff2",
+      weight: "500",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-600.woff2",
+      weight: "600",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-700.woff2",
+      weight: "700",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-800.woff2",
+      weight: "800",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-900.woff2",
+      weight: "900",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-100-Italic.woff2",
+      weight: "100",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-200-Italic.woff2",
+      weight: "200",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-300-Italic.woff2",
+      weight: "300",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-Italic.woff2",
+      weight: "400",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-500-Italic.woff2",
+      weight: "500",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-600-Italic.woff2",
+      weight: "600",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-700-Italic.woff2",
+      weight: "700",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-800-Italic.woff2",
+      weight: "800",
+      style: "italic"
+    },
+    {
+      path: "../../public/fonts/raleway/Raleway-900-Italic.woff2",
+      weight: "900",
+      style: "italic"
+    },
+  ],
+  display: 'swap',
+  variable: '--font-roboto'
+});
+
+const rozhaOne = localFont({
+  src: [
+    {
+      path: "../../public/fonts/rozha-one/RozhaOne-Regular.woff2",
+      weight: "400",
+      style: "normal"
+    },
+  ],
+  display: 'swap',
+  variable: '--font-roboto'
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +161,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={`${oswald.variable} ${raleway.variable} ${rozhaOne.variable}`}
+        suppressHydrationWarning={true}
+      >
         {children}
         <AnalyticsWrapper />
       </body>
