@@ -9,8 +9,9 @@ interface JQueryProviderProps {
 export default function JQueryProvider({ children }: JQueryProviderProps) {
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const jQuery = require('jquery');
-            window.$ = window.jQuery = jQuery;
+            import('jquery').then((jQuery) => {
+                window.$ = window.jQuery = jQuery.default;
+            });
         }
     }, []);
 
