@@ -41,7 +41,7 @@ const oswald = localFont({
     },
   ],
   display: 'swap',
-  variable: '--font-roboto'
+  variable: '--font-oswald'
 });
 
 const raleway = localFont({
@@ -138,7 +138,7 @@ const raleway = localFont({
     },
   ],
   display: 'swap',
-  variable: '--font-roboto'
+  variable: '--font-raleway'
 });
 
 const rozhaOne = localFont({
@@ -150,7 +150,7 @@ const rozhaOne = localFont({
     },
   ],
   display: 'swap',
-  variable: '--font-roboto'
+  variable: '--font-rozhaOne'
 });
 
 export const metadata: Metadata = {

@@ -1,3 +1,146 @@
+// // 'use client';
+
+// // import { NAVLINKS } from "@/constants";
+// // import { SOCIALLINKS } from "@/constants/socialLinks";
+// // import { Icon } from "@iconify/react";
+// // import Image from "next/image";
+// // import Link from "next/link";
+// // import { memo, useEffect, useState, useCallback } from "react";
+
+// // export const Header = memo(() => {
+// //     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+// //     const [isMobile, setIsMobile] = useState(false);
+// //     const [activeSection, setActiveSection] = useState('#home');
+
+// //     // Toggle mobile menu
+// //     const toggleMobileMenu = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+// //         e.preventDefault();
+// //         setIsMobileMenuOpen(prev => !prev);
+// //     }, []);
+
+// //     // Close mobile menu when nav link is clicked
+// //     const handleNavLinkClick = useCallback(() => {
+// //         if (isMobile) {
+// //             setIsMobileMenuOpen(false);
+// //         }
+// //     }, [isMobile]);
+
+// //     // Check if viewport is mobile and update state
+// //     useEffect(() => {
+// //         const checkMobile = () => {
+// //             const toggleButton = document.querySelector('.header-menu-toggle');
+// //             if (toggleButton) {
+// //                 const isVisible = window.getComputedStyle(toggleButton).display !== 'none';
+// //                 setIsMobile(isVisible);
+// //             }
+// //         };
+
+// //         checkMobile();
+// //         window.addEventListener('resize', checkMobile);
+
+// //         return () => {
+// //             window.removeEventListener('resize', checkMobile);
+// //         };
+// //     }, []);
+
+// //     // Scroll spy functionality
+// //     useEffect(() => {
+// //         const handleScroll = () => {
+// //             const sections = NAVLINKS.map(link => link.href).filter(href => href.startsWith('#'));
+// //             const scrollPosition = window.scrollY + 200; // Offset for better detection
+
+// //             for (let i = sections.length - 1; i >= 0; i--) {
+// //                 const section = document.querySelector(sections[i]);
+// //                 if (section) {
+// //                     const sectionTop = (section as HTMLElement).offsetTop;
+// //                     if (scrollPosition >= sectionTop) {
+// //                         setActiveSection(sections[i]);
+// //                         break;
+// //                     }
+// //                 }
+// //             }
+// //         };
+
+// //         window.addEventListener('scroll', handleScroll);
+// //         handleScroll(); // Initial check
+
+// //         return () => {
+// //             window.removeEventListener('scroll', handleScroll);
+// //         };
+// //     }, []);
+
+// //     return (
+// //         <header className="header-wrap">
+// //             <div className="header-logo">
+// //                 <Link
+// //                     className="site-logo"
+// //                     href="/"
+// //                 >
+// //                     <Image
+// //                         src="/images/logo.webp"
+// //                         alt="logo"
+// //                         width={188}
+// //                         height={90}
+// //                     />
+// //                 </Link>
+// //             </div>
+
+// //             <nav
+// //                 className={`header-nav-wrap${isMobile ? ' mobile' : ''}`}
+// //                 style={{
+// //                     display: isMobile && !isMobileMenuOpen ? 'none' : 'block'
+// //                 }}
+// //             >
+// //                 <ul
+// //                     id="navbar"
+// //                     className="header-main-nav"
+// //                 >
+// //                     {NAVLINKS.map((link, index) => (
+// //                         <li key={index}>
+// //                             <Link
+// //                                 href={link.href}
+// //                                 className={`nav-link${activeSection === link.href ? ' active' : ''}`}
+// //                                 onClick={handleNavLinkClick}
+// //                             >
+// //                                 {link.name}
+// //                             </Link>
+// //                         </li>
+// //                     ))}
+// //                 </ul>
+
+// //                 <ul className="header-social">
+// //                     {SOCIALLINKS.map((link, index) => (
+// //                         <li key={index}>
+// //                             <a
+// //                                 className="social-icon"
+// //                                 href={link.href}
+// //                                 target="_blank"
+// //                                 rel="noopener noreferrer"
+// //                             >
+// //                                 <Icon icon={link.icon} style={{ color: '#111' }} />
+// //                             </a>
+// //                         </li>
+// //                     ))}
+// //                 </ul>
+// //             </nav>
+
+// //             <Link
+// //                 className={`header-menu-toggle${isMobileMenuOpen ? ' is-clicked' : ''}`}
+// //                 href="#"
+// //                 onClick={toggleMobileMenu}
+// //             >
+// //                 <span>Menu</span>
+// //             </Link>
+// //         </header>
+// //     );
+// // });
+
+// // Header.displayName = "Header";
+
+
+
+
+
 // 'use client';
 
 // import { NAVLINKS } from "@/constants";
@@ -16,14 +159,35 @@
 //     const toggleMobileMenu = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
 //         e.preventDefault();
 //         setIsMobileMenuOpen(prev => !prev);
-//     }, []);
 
-//     // Close mobile menu when nav link is clicked
+//         // Prevent body scroll when menu is open
+//         if (!isMobileMenuOpen) {
+//             document.body.style.overflow = 'hidden';
+//         } else {
+//             document.body.style.overflow = '';
+//         }
+//     }, [isMobileMenuOpen]);
+
 //     const handleNavLinkClick = useCallback(() => {
 //         if (isMobile) {
 //             setIsMobileMenuOpen(false);
+//             document.body.style.overflow = ''; // Restore scroll
 //         }
 //     }, [isMobile]);
+
+//     // Close menu on escape key
+//     useEffect(() => {
+//         const handleEscape = (e: KeyboardEvent) => {
+//             if (e.key === 'Escape' && isMobileMenuOpen) {
+//                 setIsMobileMenuOpen(false);
+//                 document.body.style.overflow = '';
+//             }
+//         };
+
+//         window.addEventListener('keydown', handleEscape);
+
+//         return () => window.removeEventListener('keydown', handleEscape);
+//     }, [isMobileMenuOpen]);
 
 //     // Check if viewport is mobile and update state
 //     useEffect(() => {
@@ -32,14 +196,20 @@
 //             if (toggleButton) {
 //                 const isVisible = window.getComputedStyle(toggleButton).display !== 'none';
 //                 setIsMobile(isVisible);
+//                 if (!isVisible) {
+//                     setIsMobileMenuOpen(false);
+//                     document.body.style.overflow = '';
+//                 }
 //             }
 //         };
 
 //         checkMobile();
+
 //         window.addEventListener('resize', checkMobile);
 
 //         return () => {
 //             window.removeEventListener('resize', checkMobile);
+//             document.body.style.overflow = '';
 //         };
 //     }, []);
 
@@ -47,7 +217,7 @@
 //     useEffect(() => {
 //         const handleScroll = () => {
 //             const sections = NAVLINKS.map(link => link.href).filter(href => href.startsWith('#'));
-//             const scrollPosition = window.scrollY + 200; // Offset for better detection
+//             const scrollPosition = window.scrollY + 200;
 
 //             for (let i = sections.length - 1; i >= 0; i--) {
 //                 const section = document.querySelector(sections[i]);
@@ -62,7 +232,8 @@
 //         };
 
 //         window.addEventListener('scroll', handleScroll);
-//         handleScroll(); // Initial check
+
+//         handleScroll();
 
 //         return () => {
 //             window.removeEventListener('scroll', handleScroll);
@@ -75,6 +246,10 @@
 //                 <Link
 //                     className="site-logo"
 //                     href="/"
+//                     onClick={() => {
+//                         setIsMobileMenuOpen(false);
+//                         document.body.style.overflow = '';
+//                     }}
 //                 >
 //                     <Image
 //                         src="/images/logo.webp"
@@ -116,6 +291,7 @@
 //                                 href={link.href}
 //                                 target="_blank"
 //                                 rel="noopener noreferrer"
+//                                 onClick={handleNavLinkClick}
 //                             >
 //                                 <Icon icon={link.icon} style={{ color: '#111' }} />
 //                             </a>
@@ -141,6 +317,11 @@
 
 
 
+
+
+
+
+
 'use client';
 
 import { NAVLINKS } from "@/constants";
@@ -155,63 +336,47 @@ export const Header = memo(() => {
     const [isMobile, setIsMobile] = useState(false);
     const [activeSection, setActiveSection] = useState('#home');
 
-    // Toggle mobile menu
-    const toggleMobileMenu = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        setIsMobileMenuOpen(prev => !prev);
-
-        // Prevent body scroll when menu is open
-        if (!isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    }, [isMobileMenuOpen]);
-
-    const handleNavLinkClick = useCallback(() => {
-        if (isMobile) {
-            setIsMobileMenuOpen(false);
-            document.body.style.overflow = ''; // Restore scroll
-        }
-    }, [isMobile]);
-
-    // Close menu on escape key
+    // Check if viewport is mobile
     useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape' && isMobileMenuOpen) {
+        const checkMobile = () => {
+            // Use window width instead of checking element display
+            const isMobileView = window.innerWidth < 1000;
+            setIsMobile(isMobileView);
+
+            // Close menu if switching to desktop view
+            if (!isMobileView && isMobileMenuOpen) {
                 setIsMobileMenuOpen(false);
                 document.body.style.overflow = '';
             }
         };
 
-        window.addEventListener('keydown', handleEscape);
-
-        return () => window.removeEventListener('keydown', handleEscape);
-    }, [isMobileMenuOpen]);
-
-    // Check if viewport is mobile and update state
-    useEffect(() => {
-        const checkMobile = () => {
-            const toggleButton = document.querySelector('.header-menu-toggle');
-            if (toggleButton) {
-                const isVisible = window.getComputedStyle(toggleButton).display !== 'none';
-                setIsMobile(isVisible);
-                if (!isVisible) {
-                    setIsMobileMenuOpen(false);
-                    document.body.style.overflow = '';
-                }
-            }
-        };
-
         checkMobile();
-
         window.addEventListener('resize', checkMobile);
 
         return () => {
             window.removeEventListener('resize', checkMobile);
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''; // Cleanup
         };
-    }, []);
+    }, [isMobileMenuOpen]);
+
+    // Toggle mobile menu
+    const toggleMobileMenu = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        if (!isMobile) return; // Only toggle on mobile
+
+        setIsMobileMenuOpen(prev => {
+            const newState = !prev;
+            document.body.style.overflow = newState ? 'hidden' : '';
+            return newState;
+        });
+    }, [isMobile]);
+
+    const handleNavLinkClick = useCallback(() => {
+        if (isMobile && isMobileMenuOpen) {
+            setIsMobileMenuOpen(false);
+            document.body.style.overflow = '';
+        }
+    }, [isMobile, isMobileMenuOpen]);
 
     // Scroll spy functionality
     useEffect(() => {
@@ -232,13 +397,25 @@ export const Header = memo(() => {
         };
 
         window.addEventListener('scroll', handleScroll);
-
         handleScroll();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    // Close menu on escape key
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isMobileMenuOpen) {
+                setIsMobileMenuOpen(false);
+                document.body.style.overflow = '';
+            }
+        };
+
+        window.addEventListener('keydown', handleEscape);
+        return () => window.removeEventListener('keydown', handleEscape);
+    }, [isMobileMenuOpen]);
 
     return (
         <header className="header-wrap">
@@ -247,8 +424,10 @@ export const Header = memo(() => {
                     className="site-logo"
                     href="/"
                     onClick={() => {
-                        setIsMobileMenuOpen(false);
-                        document.body.style.overflow = '';
+                        if (isMobile && isMobileMenuOpen) {
+                            setIsMobileMenuOpen(false);
+                            document.body.style.overflow = '';
+                        }
                     }}
                 >
                     <Image
@@ -263,7 +442,8 @@ export const Header = memo(() => {
             <nav
                 className={`header-nav-wrap${isMobile ? ' mobile' : ''}`}
                 style={{
-                    display: isMobile && !isMobileMenuOpen ? 'none' : 'block'
+                    // Only control display via CSS classes, not inline styles
+                    display: (isMobile && !isMobileMenuOpen) ? 'none' : 'block'
                 }}
             >
                 <ul
@@ -304,6 +484,7 @@ export const Header = memo(() => {
                 className={`header-menu-toggle${isMobileMenuOpen ? ' is-clicked' : ''}`}
                 href="#"
                 onClick={toggleMobileMenu}
+                style={{ display: isMobile ? 'block' : 'none' }}
             >
                 <span>Menu</span>
             </Link>

@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
 import { Preloader } from "@/components/Preloader";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Preloader />
       <Header />
+      <Hero />
     </>
   );
 }
