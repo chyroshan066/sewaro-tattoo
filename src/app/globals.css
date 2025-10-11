@@ -761,6 +761,11 @@
     .services-wrap{
       text-align: center;
     }
+
+    /* .services-wrap .container {
+      padding: 0 -50px;
+    } */
+
     .services-wrap .chart{
       position: relative;
       display: inline-block;
@@ -798,7 +803,7 @@
       font-weight: 300;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #111;  
+      color: #111;
     }
     .services-wrap .chart canvas{
       position: absolute;
@@ -1516,6 +1521,7 @@
     --title-offset: -20px;
   }
 }
+
 @media screen and (max-width: 1399px) and (min-width: 1300px) {
   .gallery-wrap {
     --title-offset: -65px;
@@ -1530,4 +1536,11 @@
   .header-menu-toggle {
     display: none !important;
   }
+}
+
+@media (min-width: 1300px) {
+  /* SERVICES */
+    .services-wrap .container {
+        max-width: 1300px;
+    }
 }

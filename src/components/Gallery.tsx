@@ -26,7 +26,7 @@ declare global {
 
 export const Gallery = memo(() => {
     const galleryRef = useRef<HTMLDivElement>(null);
-    const chocolatInstanceRef = useRef<ChocolatInstance | any>(null);
+    const chocolatInstanceRef = useRef<ChocolatInstance>(null);
     const isInitializedRef = useRef<boolean>(false);
 
     useEffect(() => {
@@ -109,7 +109,6 @@ export const Gallery = memo(() => {
                         });
 
                         isInitializedRef.current = true;
-                        console.log('Chocolat initialized successfully');
                     }
                 }
             } catch (error) {
