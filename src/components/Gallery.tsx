@@ -5,9 +5,28 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { memo, useEffect, useRef } from "react";
 
+interface ChocolatInstance {
+    destroy: () => void;
+}
+
+interface ChocolatOptions {
+    imageSize?: 'contain' | 'cover' | 'native';
+    loop?: boolean;
+}
+
+interface ChocolatConstructor {
+    (elements: NodeListOf<Element> | Element[], options?: ChocolatOptions): ChocolatInstance;
+}
+
+declare global {
+    interface Window {
+        Chocolat?: ChocolatConstructor;
+    }
+}
+
 export const Gallery = memo(() => {
     const galleryRef = useRef<HTMLDivElement>(null);
-    const chocolatInstanceRef = useRef<any>(null);
+    const chocolatInstanceRef = useRef<ChocolatInstance | any>(null);
     const isInitializedRef = useRef<boolean>(false);
 
     useEffect(() => {
@@ -51,7 +70,7 @@ export const Gallery = memo(() => {
         // Dynamically load Chocolat JS
         const loadChocolatJS = () => {
             return new Promise<void>((resolve, reject) => {
-                if (typeof window !== 'undefined' && (window as any).Chocolat) {
+                if (typeof window !== 'undefined' && window.Chocolat) {
                     resolve();
                     return;
                 }
@@ -75,7 +94,7 @@ export const Gallery = memo(() => {
                 addCustomStyles();
                 await loadChocolatJS();
 
-                if (galleryRef.current && (window as any).Chocolat && !isInitializedRef.current) {
+                if (galleryRef.current && window.Chocolat && !isInitializedRef.current) {
                     const imageLinks = galleryRef.current.querySelectorAll('.image-link');
 
                     // Check if elements already have Chocolat initialized
@@ -84,7 +103,7 @@ export const Gallery = memo(() => {
                     );
 
                     if (imageLinks.length > 0 && !hasChocolatInitialized) {
-                        chocolatInstanceRef.current = (window as any).Chocolat(imageLinks, {
+                        chocolatInstanceRef.current = window.Chocolat(imageLinks, {
                             imageSize: 'contain',
                             loop: true,
                         });
@@ -177,6 +196,7 @@ export const Gallery = memo(() => {
                     </a>
                 </div>
             </div>
+
         </section>
     );
 });

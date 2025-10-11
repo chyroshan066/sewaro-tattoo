@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 import { memo } from "react";
 
 export const About = memo(() => (
@@ -11,11 +12,17 @@ export const About = memo(() => (
         <div className="container">
             <div className="row">
                 <div className="section-image col-md-6">
-                    <img
+                    <Image
                         src="/images/about.png"
                         alt="about"
-                        width="100%"
-                        height="auto"
+                        width={600}
+                        height={800}
+                        className="w-full h-auto"
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            display: 'inline-block'
+                        }}
                     />
                 </div>
 
