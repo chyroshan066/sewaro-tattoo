@@ -2,10 +2,31 @@ interface Link {
     href: string;
 }
 
-export interface NavLink extends Link {
+interface Name {
     name: string;
 }
 
+export interface NavLink extends Link, Name {}
+
 export interface SocialLink extends Link {
     icon: string;
+}
+
+export interface Service extends Name {
+    percent: number;
+}
+
+export interface Testimonial {
+    text: string;
+    author: string;
+    tag: string;
+}
+
+export interface Gallery {
+    imgSrc: string;
+    title: string;
+}
+
+export interface Article extends Link, Gallery {
+    date: string;
 }
