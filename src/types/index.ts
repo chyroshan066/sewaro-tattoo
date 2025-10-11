@@ -6,11 +6,13 @@ interface Name {
     name: string;
 }
 
-export interface NavLink extends Link, Name {}
-
-export interface SocialLink extends Link {
+export interface IconType {
     icon: string;
 }
+
+export interface NavLink extends Link, Name {}
+
+export interface SocialLink extends Link, IconType {}
 
 export interface Service extends Name {
     percent: number;

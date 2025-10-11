@@ -3,6 +3,7 @@
 import { GALLERYCOLUMNS } from "@/constants";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import Link from "next/link";
 import { memo, useEffect, useRef } from "react";
 
 interface ChocolatInstance {
@@ -165,7 +166,7 @@ export const Gallery = memo(() => {
                             className="col-12 col-md-3"
                         >
                             {column.map((image, index) => (
-                                <a
+                                <Link
                                     key={index}
                                     href={image.imgSrc}
                                     title={image.title}
@@ -182,7 +183,7 @@ export const Gallery = memo(() => {
                                             height: 'auto'
                                         }}
                                     />
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     ))}

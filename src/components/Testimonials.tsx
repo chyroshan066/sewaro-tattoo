@@ -1,67 +1,138 @@
-// import { TESTIMONIALS } from "@/constants";
-// import { Icon } from "@iconify/react";
-// import { memo } from "react";
+'use client';
 
-// export const Testimonials = memo(() => {
-//     return <section className="testimonials-wrap">
-//         <div className="container testimonial-slider swiper mySwiper">
-//             <div className="swiper-wrapper">
+import { TESTIMONIALS } from "@/constants";
+import { Icon } from "@iconify/react";
+import Image from "next/image";
+import { memo, useEffect, useRef, useState } from "react";
 
-//                 {/* <div className="item-content swiper-slide">
-//                     <div className="quotation-img">
-//                         <img src="images/resource/quotation.png" alt="quotation-icon" />
-//                     </div>
-//                     <p className="item-paragraph">The entire team is extremely kind and friendly. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.</p>
-//                     <div className="testimonial-author">
-//                         <div className="author-name">Jack Geoffrey<span>tattoo artist</span></div>
-//                     </div>
-//                 </div>
+interface SwiperInstance {
+    slideNext: () => void;
+    slidePrev: () => void;
+    update: () => void;
+    destroy: () => void;
+    activeIndex: number;
+    slides: any[];
+    isEnd: boolean;
+    isBeginning: boolean;
+    realIndex: number;
+}
 
-//                 <div className="item-content swiper-slide">
-//                     <div className="quotation-img">
-//                         <img src="images/resource/quotation.png" alt="quotation-icon" />
-//                     </div>
-//                     <p className="item-paragraph">The entire team is extremely kind and friendly. They will properly consult with you. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.</p>
-//                     <div className="testimonial-author">
-//                         <div className="author-name">Jack Geoffrey<span>tattoo artist</span></div>
-//                     </div>
-//                 </div>
+export const Testimonials = memo(() => {
+    const swiperRef = useRef<SwiperInstance | null>(null);
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
 
-//                 <div className="item-content swiper-slide">
-//                     <div className="quotation-img">
-//                         <img src="images/resource/quotation.png" alt="quotation-icon" />
-//                     </div>
-//                     <p className="item-paragraph">They're great at what they do! And it's unique. They will properly consult with you. The entire team is extremely kind and friendly.They will properly consult with you.</p>
-//                     <div className="testimonial-author">
-//                         <div className="author-name">Jack Geoffrey<span>tattoo artist</span></div>
-//                     </div>
-//                 </div> */}
+    useEffect(() => {
+        // Initialize Swiper
+        const initSwiper = async () => {
+            try {
+                const Swiper = (await import('swiper')).default;
+                const { Navigation } = await import('swiper/modules');
 
-//                 {TESTIMONIALS.map((testimonial, index) => (
-//                     <div
-//                         key={index}
-//                         className="item-content swiper-slide"
-//                     >
-//                         <div className="quotation-img">
-//                             <img src="images/resource/quotation.png" alt="quotation-icon" />
-//                         </div>
-//                         <p className="item-paragraph">{testimonial.text}</p>
-//                         <div className="testimonial-author">
-//                             <div className="author-name">{testimonial.author}<span>{testimonial.tag}</span></div>
-//                         </div>
-//                     </div>
-//                 ))}
+                await import('swiper/swiper-bundle.css');
 
-//             </div>
+                const swiper = new Swiper('.testimonial-slider.swiper', {
+                    modules: [Navigation],
+                    autoHeight: true,
+                    spaceBetween: 20,
+                    loop: false,
+                    navigation: {
+                        nextEl: ".slide-button-next",
+                        prevEl: ".slide-button-prev",
+                    },
+                    on: {
+                        slideChange: function (this: any) {
+                            setIsBeginning(this.isBeginning);
+                            setIsEnd(this.isEnd);
+                        },
+                        init: function (this: any) {
+                            setIsBeginning(this.isBeginning);
+                            setIsEnd(this.isEnd);
+                        }
+                    }
+                });
 
-//             <div className="testimonial-slider-btn">
-//                 <div className="slide-button-prev"><a href=""><Icon icon="la:arrow-left" /></a></div>
-//                 <div className="slide-button-next"><a href=""><Icon icon="la:arrow-right" /></a></div>
-//             </div>
+                swiperRef.current = swiper;
+            } catch (error) {
+                console.error('Error initializing Swiper:', error);
+            }
+        };
 
-//         </div>
+        initSwiper();
 
-//     </section>
-// });
+        // Cleanup
+        return () => {
+            if (swiperRef.current) {
+                swiperRef.current.destroy();
+            }
+        };
+    }, []);
 
-// Testimonials.displayName = "Testimonials";
+    const handlePrevClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (swiperRef.current && !isBeginning) {
+            swiperRef.current.slidePrev();
+        }
+    };
+
+    const handleNextClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (swiperRef.current && !isEnd) {
+            swiperRef.current.slideNext();
+        }
+    };
+
+    return (
+        <section className="testimonials-wrap">
+            <div className="container testimonial-slider swiper mySwiper">
+
+                <div className="swiper-wrapper">
+                    {TESTIMONIALS.map((testimonial, index) => (
+                        <div
+                            key={index}
+                            className="item-content swiper-slide"
+                        >
+                            <div className="quotation-img">
+                                <Image
+                                    src="/images/quotation.png"
+                                    alt="quotation-icon"
+                                    width={150}
+                                    height={120}
+                                    priority={index === 0}
+                                />
+                            </div>
+                            <p className="item-paragraph">{testimonial.text}</p>
+                            <div className="testimonial-author">
+                                <div className="author-name">
+                                    {testimonial.author}
+                                    <span>{testimonial.tag}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="testimonial-slider-btn">
+                    <div
+                        className={`slide-button-prev ${isBeginning ? 'swiper-button-disabled' : ''}`}
+                        onClick={handlePrevClick}
+                    >
+                        <a href="#" onClick={(e) => e.preventDefault()}>
+                            <Icon icon="la:arrow-left" />
+                        </a>
+                    </div>
+                    <div
+                        className={`slide-button-next ${isEnd ? 'swiper-button-disabled' : ''}`}
+                        onClick={handleNextClick}
+                    >
+                        <a href="#" onClick={(e) => e.preventDefault()}>
+                            <Icon icon="la:arrow-right" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+});
+
+Testimonials.displayName = "Testimonials";

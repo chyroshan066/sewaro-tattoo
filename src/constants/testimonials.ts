@@ -16,4 +16,24 @@ export const TESTIMONIALS: Testimonial[] = [
         author: "Jack Geoffrey",
         tag: "tattoo artist",
     },
+    {
+        text: "The entire team is extremely kind and friendly. They will properly consult with you. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.",
+        author: "Jack Geoffrey",
+        tag: "tattoo artist",
+    },
+    {
+        text: "The entire team is extremely kind and friendly. They will properly consult with you. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.",
+        author: "Jack Geoffrey",
+        tag: "tattoo artist",
+    },
+    {
+        text: "The entire team is extremely kind and friendly. They will properly consult with you. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.",
+        author: "Jack Geoffrey",
+        tag: "tattoo artist",
+    },
+    {
+        text: "The entire team is extremely kind and friendly. They will properly consult with you. They're fantastic. They're great at what they do! And it's unique. They will properly consult with you.",
+        author: "Jack Geoffrey",
+        tag: "tattoo artist",
+    },
 ];
