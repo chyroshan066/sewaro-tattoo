@@ -4,6 +4,7 @@ import { TESTIMONIALS } from "@/constants";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { memo, useEffect, useRef, useState } from "react";
+import type { Swiper as SwiperType } from 'swiper';
 
 interface SwiperInstance {
     slideNext: () => void;
@@ -11,7 +12,7 @@ interface SwiperInstance {
     update: () => void;
     destroy: () => void;
     activeIndex: number;
-    slides: any[];
+    slides: HTMLElement[];
     isEnd: boolean;
     isBeginning: boolean;
     realIndex: number;
@@ -41,11 +42,11 @@ export const Testimonials = memo(() => {
                         prevEl: ".slide-button-prev",
                     },
                     on: {
-                        slideChange: function (this: any) {
+                        slideChange: function (this: SwiperType) {
                             setIsBeginning(this.isBeginning);
                             setIsEnd(this.isEnd);
                         },
-                        init: function (this: any) {
+                        init: function (this: SwiperType) {
                             setIsBeginning(this.isBeginning);
                             setIsEnd(this.isEnd);
                         }

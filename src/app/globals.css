@@ -918,14 +918,6 @@
       display: flex;
       align-items: center;
     }
-    .interview-wrap .interview-bg-img .interview-content h2{
-      font-family: Rozha One;
-      font-size: 60px;
-      line-height: 110%;
-      letter-spacing: -0.02em;
-      text-transform: capitalize;
-      color: #fff;
-    }
     .interview-wrap .interview-bg-img .interview-content .video-btn{
       display: flex;
       align-items: center;
@@ -934,6 +926,7 @@
     }
     .interview-wrap .interview-bg-img .interview-content .video-btn a.play-btn svg.iconify{
       margin-left: 4%;
+      color: #000; 
     }
     .interview-wrap .interview-bg-img .interview-content .video-btn a.play-btn{
       position: relative;  
@@ -945,7 +938,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
+      border-radius: 50%;  
     }
     .interview-wrap .interview-bg-img .interview-content .video-btn a.play-btn:before{
       content: "";
@@ -963,10 +956,6 @@
     }
     .interview-wrap .interview-bg-img .interview-content .video-btn .btn{
       margin: 0;
-      margin-left: 28px;
-      padding: 0;
-      border: none;
-      letter-spacing: 0.1em;
     }
     .interview-wrap .interview-bg-img .interview-content .video-btn .btn:hover{
       color: #fff;
@@ -1187,10 +1176,26 @@
     /* OVERRIDE */
     .modal-dialog {
       max-width: 800px;
-      margin: auto;
       height: 100vh;
       display: flex;
       align-items: center;
+    }
+    .modal-body .btn-close::before,
+    .modal-body .btn-close::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: #fff;
+    }
+    .modal-body .btn-close::before {
+      transform: rotate(45deg);
+    }
+    .modal-body .btn-close::after {
+      transform: rotate(-45deg);
+    }
+    .modal-body .btn-close:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -1285,6 +1290,19 @@
   }
   .main-footer .widgets-section .footer-column .footer-widget.links-widget {
     padding-left: 0;
+  }
+
+  /* OVERRIDE */
+
+  .modal-body .btn-close {
+    left: auto;
+    right: 10px;
+    top: 10px;
+    background-color: #fff;
+  }
+  .modal-body .btn-close::before,
+  .modal-body .btn-close::after {
+    background-color: #111;
   }
 }
 
@@ -1567,12 +1585,14 @@
 }
 
 @media screen and (max-width: 1299px) and (min-width: 1200px) {
+  /* GALLERY */
   .gallery-wrap {
     --title-offset: -20px;
   }
 }
 
 @media screen and (max-width: 1399px) and (min-width: 1300px) {
+  /* GALLERY */
   .gallery-wrap {
     --title-offset: -65px;
   }
@@ -1596,6 +1616,11 @@
 
   /* TESTIMONIALS */
   .testimonials-wrap .container {
+    max-width: 1300px;
+  }
+
+  /* INTERVIEW */
+  .interview-wrap .container {
     max-width: 1300px;
   }
 }
