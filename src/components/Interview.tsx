@@ -40,7 +40,7 @@ export const Interview = memo(() => {
                                     textTransform: "capitalize",
                                     color: "#fff"
                                 }}>
-                                    "Consider what you desire. Your tattoo artist will never tell you what tattoo to have."
+                                    &quot;Consider what you desire. Your tattoo artist will never tell you what tattoo to have.&quot;
                                 </h2>
                                 <div className="video-btn">
                                     <a
