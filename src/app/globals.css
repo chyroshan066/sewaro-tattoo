@@ -1078,19 +1078,8 @@
   .main-footer .widgets-section .footer-column .footer-widget.links-widget{
     padding-left: 20%;
   }
-  .main-footer .widgets-section .footer-widget h4{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #fff;  
-    margin-bottom: 24px;
-  }
-  .main-footer .widgets-section .footer-widget p, 
   .main-footer .widgets-section .footer-widget a{
     letter-spacing: 0.02em;
-    color: #d6d6d6;  
   }
   .main-footer .widgets-section .footer-widget a{
     margin-bottom: 24px;
@@ -1102,16 +1091,9 @@
   .main-footer .widgets-section .about-widget .contact-info-list a{
     font-weight: 600;
   }
-  .main-footer .widgets-section .about-widget .contact-info-list a svg.iconify{
-    margin-right: 10px;
-  }
   .main-footer .widgets-section .about-widget .contact-info-list a:hover{
     font-weight: 600;
     color: #fff;
-  }
-  .main-footer .widgets-section .newsletter-widget .form-group{
-    position: relative;
-    margin-top: 25px;
   }
   .main-footer .widgets-section .newsletter-widget .form-group ::placeholder{
     font-style: italic;
@@ -1131,29 +1113,6 @@
     font-size: 16px;
     line-height: 100%;
     color: #fff;
-  }
-  .main-footer .widgets-section .newsletter-widget .form-group a{
-    position: absolute;
-    right: 0;
-    top: -8px;
-    font-size: 26px;
-    color: #F2F2F2;
-    margin-bottom: 0;
-  }
-  .main-footer .footer-bottom{
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.02em;
-    color: #DBDBDB;
-    padding: 37px 0;
-    border-top: 1px solid #2B2B2B;
-  }
-  .main-footer .footer-bottom a{
-    font-weight: 500;
-    color: #fff;
-  }
-  .main-footer .footer-bottom a:hover{
-    text-decoration: underline;
   }
 
   /* OVERRIDE */
@@ -1620,6 +1579,11 @@
 
   /* CONTACT */
   .contact-wrap .container {
+    max-width: 1300px;
+  }
+
+  /* FOOTER */
+  .main-footer .container {
     max-width: 1300px;
   }
 }

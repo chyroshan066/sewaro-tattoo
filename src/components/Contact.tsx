@@ -48,31 +48,40 @@ export const Contact = memo(() => {
                             lineHeight: '187%',
                             fontWeight: '400'
                         }}>In velit arcu posuere integer sit amet, consectetur nun adipiscing elit. Duis porttitor massa tellus</p>
-                        <ul className="contact-info-list" style={{
-                            listStyle: 'none',
-                            padding: '0',
-                            margin: '20px 0 0 0'
-                        }}>
+                        <ul
+                            className="contact-info-list"
+                            style={{
+                                listStyle: 'none',
+                                padding: '0',
+                                margin: '20px 0 0 0'
+                            }}
+                        >
                             <li>
-                                <a href="#" style={{
-                                    display: 'flex',
-                                    alignItems: 'flex-start',
-                                    fontWeight: '500',
-                                    lineHeight: '21px',
-                                    letterSpacing: '0.02em',
-                                    color: '#111',
-                                    textDecoration: 'none',
-                                    transition: 'color 0.3s ease',
-                                    fontFamily: 'var(--font-raleway), Raleway, sans-serif',
-                                    marginBottom: '14px',
-                                    fontSize: '18px'
-                                }}>
-                                    <Icon icon="icomoon-free:location" style={{
-                                        marginRight: '10px',
-                                        marginTop: '2px',
-                                        fontSize: '18px',
-                                        flexShrink: 0
-                                    }} />
+                                <a
+                                    href="#"
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'flex-start',
+                                        fontWeight: '500',
+                                        lineHeight: '21px',
+                                        letterSpacing: '0.02em',
+                                        color: '#111',
+                                        textDecoration: 'none',
+                                        transition: 'color 0.3s ease',
+                                        fontFamily: 'var(--font-raleway), Raleway, sans-serif',
+                                        marginBottom: '14px',
+                                        fontSize: '18px'
+                                    }}
+                                >
+                                    <Icon
+                                        icon="icomoon-free:location"
+                                        style={{
+                                            marginRight: '10px',
+                                            marginTop: '2px',
+                                            fontSize: '18px',
+                                            flexShrink: 0
+                                        }}
+                                    />
                                     784 Norman, Los Angeles
                                 </a>
                             </li>
@@ -123,26 +132,31 @@ export const Contact = memo(() => {
                                 </a>
                             </li>
                         </ul>
-                        <a className="btn btn-blank" href="#" role="button" style={{
-                            color: '#111',
-                            padding: '0',
-                            margin: '22px 0 0 0',
-                            border: 'none',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            fontFamily: 'var(--font-raleway), Raleway, sans-serif',
-                            fontSize: '18px',
-                            lineHeight: '21px',
-                            transition: 'all 0.3s ease',
-                            textTransform: 'none',
-                            fontWeight: '500',
-                            letterSpacing: '0.02em',
-                            borderBottom: '1px solid #111',
-                            paddingBottom: '4px',
-                            textDecoration: 'none',
-                            borderRadius: '0'
-                        }}>
+                        <a
+                            className="btn btn-blank"
+                            href="#"
+                            role="button"
+                            style={{
+                                color: '#111',
+                                padding: '0',
+                                margin: '22px 0 0 0',
+                                border: 'none',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                fontFamily: 'var(--font-raleway), Raleway, sans-serif',
+                                fontSize: '18px',
+                                lineHeight: '21px',
+                                transition: 'all 0.3s ease',
+                                textTransform: 'none',
+                                fontWeight: '500',
+                                letterSpacing: '0.02em',
+                                borderBottom: '1px solid #111',
+                                paddingBottom: '4px',
+                                textDecoration: 'none',
+                                borderRadius: '0'
+                            }}
+                        >
                             Get location
                         </a>
                     </div>

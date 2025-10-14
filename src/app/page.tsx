@@ -1,5 +1,6 @@
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 // import { Articles } from "@/components/Articles";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
@@ -22,6 +23,7 @@ export default function Home() {
       <Interview />
       {/* <Articles /> */}
       <Contact />
+      <Footer />
     </>
   );
 }
