@@ -1,0 +1,340 @@
+.headerWrap{
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 148px;
+    text-align: center;
+    z-index: 14;
+    box-shadow: 0px 2px 24px rgb(0 0 0 / 3%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .headerWrap .headerLogo {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .headerWrap .headerLogo img {
+    width: 188px;
+    height: 90px;
+    margin: 0;
+  }
+  .headerWrap .headerNavWrap {
+    display: inline-block;
+  }
+  .headerWrap .headerNavWrap ul {
+    text-align: center;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .headerWrap .headerNavWrap .headerMainNav{
+    margin: 0;
+    display: inline-block;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li{
+    margin: 0 24px;
+    display: inline-block;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li{
+    font-family: var(--font-oswald);
+    padding: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111;
+    display: inline-block;
+    line-height: 1;
+    font-size: 18px;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #111;
+    transition: width .3s;
+    margin-top: 4px;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li:hover::after {
+    color: #111;
+    width: 100%;
+    transition: width .3s;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #111;
+    transition: width .3s;
+    margin-top: 4px;
+  }
+  .headerWrap .headerNavWrap .headerSocial{
+    font-size: 22px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+  }
+  .headerWrap .headerNavWrap .headerSocial ul{
+    margin: 0;
+    padding: 0;
+  }
+  .headerWrap .headerNavWrap .headerSocial li{
+    margin: 0;
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .headerWrap .headerNavWrap .headerSocial a{
+    font-size: 22px;
+    transition-duration: 0.3s;
+    display: inline-block;
+    line-height: 1;
+  }
+  .headerWrap .headerNavWrap .headerSocial a:hover{
+    color: #444;
+  }
+  .headerWrap .headerNavWrap .headerSocial svg{
+    display: block;
+  }
+
+  /* MENU TRIGGER */
+  .headerMenuToggle {
+    display: none;
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+    font-family: "Lora", serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all .3s;
+    position: absolute;
+    right: 32px;
+    top: 33px;
+  }
+  .headerMenuToggle:hover,
+  .headerMenuToggle:focus {
+    color: #ffffff;
+  }
+  .headerMenuToggle span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: #111;
+    transition: all .5s;
+    font: 0/0 a; /* This CSS visually hide text while keeping it accessible to screen readers. Used for SEO and accessibility.
+    font: [font-size]/[line-height] [font-family]; */
+    text-shadow: none;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    right: auto;
+    bottom: auto;
+  }
+  .headerMenuToggle span::before,
+  .headerMenuToggle span::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    position: absolute;
+    left: 0;
+    transition: all .5s;
+  }
+  .headerMenuToggle span::before {
+    top: -10px;
+  }
+  .headerMenuToggle span::after {
+    bottom: -10px;
+  }
+  .headerMenuToggle.is-clicked span {
+    background-color: white;
+    transition: all .1s;
+  }
+  .headerMenuToggle.is-clicked span::before,
+  .headerMenuToggle.is-clicked span::after {
+    background-color: #111;
+  }
+  .headerMenuToggle.is-clicked span::before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  .headerMenuToggle.is-clicked span::after {
+    bottom: 0;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
+
+@media screen and (max-width:999px) {
+  /* SECTION HEADER */
+  .headerWrap {
+    background-color: #fff;
+    height: 114px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+  .headerWrap .headerLogo {
+    position: static;
+    transform: none;
+    left: auto;
+  }
+  .headerWrap .headerLogo img {
+    width: 145px;
+    height: 69px;
+  }
+  .headerWrap .headerNavWrap {
+    display: none;
+    text-align: left;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 114px;
+    left: 0;
+    height: calc(100vh - 114px);
+    padding: 40px 44px;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .headerWrap .headerNavWrap.mobile {
+    display: block;
+  }
+  .headerWrap .headerNavWrap .headerMainNav {
+    display: block;
+    padding-left: 0;
+    height: auto;
+    margin: 0 0 3rem 0;
+    border-top: 1px solid rgb(0 0 0 / 8%);
+  }
+  .headerWrap .headerNavWrap .headerMainNav li {
+    text-align: left;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgb(0 0 0 / 8%);
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a {
+    line-height: 20px;
+    padding: 20px 0;
+    font-size: 18px;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a::after {
+    content: '';
+    width: 0;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a:hover {
+    color: #444;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a:hover::after {
+    width: 0;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a.active{
+    color: #444;
+    font-weight: 500;
+  }
+  .headerWrap .headerNavWrap .headerMainNav li a.active::after {
+    content: '';
+    width: 0;
+  }
+  .headerWrap .headerNavWrap .headerSocial {
+    text-align: left;
+    display: block;
+    position: static;
+    margin-top: 2rem;
+  }
+  .headerWrap .headerNavWrap .headerSocial ul {
+    display: flex;
+    gap: 20px;
+  }
+  .headerWrap .headerNavWrap .headerSocial li {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  .headerWrap .headerNavWrap .headerSocial li a {
+    line-height: 36px;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .headerMenuToggle {
+    display: block;
+    position: absolute;
+    right: 32px; 
+    top: 50%; 
+    transform: translateY(-50%);
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:1100px){
+  /* SECTION HEADER */
+  .headerWrap .headerNavWrap .headerMainNav li a {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  /* SECTION HEADER */
+  .headerWrap {
+    text-align: right;
+  }
+  .headerWrap .headerNavWrap {
+    margin-right: 26px;
+  }
+  .headerWrap .headerNavWrap .headerSocial {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 1000px) {
+  /* SECTION HEADER */
+  .headerWrap {
+    justify-content: space-between;
+    padding: 0 45px;
+  }
+  .headerWrap .headerLogo {
+    position: static;
+    transform: none;
+  }
+  .headerWrap .headerNavWrap {
+    display: flex !important;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .headerWrap .headerNavWrap .headerSocial {
+    display: none !important;
+  }
+  .headerWrap .headerNavWrap .headerMainNav {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width:1000px) {
+  /* SECTION HEADER */
+  .headerWrap .headerNavWrap {
+    display: block !important;
+  }
+  .headerMenuToggle {
+    display: none !important;
+  }
+}

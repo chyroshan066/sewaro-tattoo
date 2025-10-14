@@ -64,7 +64,7 @@ export const Interview = memo(() => {
                                             fontSize: "18px",
                                         }}
                                     >
-                                        watch it now
+                                        WATCH IT NOW
                                     </a>
                                 </div>
                             </div>

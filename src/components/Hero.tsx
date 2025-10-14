@@ -1,7 +1,7 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import { memo } from "react";
+import { Button } from "./utility/Button/Button";
 
 export const Hero = memo(() => (
     <section
@@ -41,38 +41,11 @@ export const Hero = memo(() => (
                         <div style={{
                             textAlign: 'center'
                         }}>
-                            <a
-                                className="btn btn-outline"
-                                href="#"
-                                role="button"
-                                style={{
-                                    border: '1px solid rgba(255, 255, 255, 0.7)',
-                                    color: '#fff',
-                                    background: 'transparent',
-                                    padding: '20px 40px',
-                                    textDecoration: 'none',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    fontFamily: "var(--font-oswald), sans-serif",
-                                    fontSize: '18px',
-                                    fontWeight: '400',
-                                    letterSpacing: '0.08em',
-                                    textTransform: 'uppercase',
-                                    borderRadius: '0',
-                                    transition: 'all 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = '#fff';
-                                    e.currentTarget.style.color = '#000';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = 'transparent';
-                                    e.currentTarget.style.color = '#fff';
-                                }}
-                            >
-                                Read More
-                                <Icon icon="la:arrow-right" style={{ marginLeft: '8px' }} />
-                            </a>
+                            <Button
+                                variant="btnOutline"
+                                btnText="Read More"
+                                marginTop="mt-10"
+                            />
                         </div>
                     </div>
                 </div>

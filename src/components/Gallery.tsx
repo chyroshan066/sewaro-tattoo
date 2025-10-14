@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useRef } from "react";
+import { Button } from "./utility/Button/Button";
 
 interface ChocolatInstance {
     destroy: () => void;
@@ -190,10 +191,11 @@ export const Gallery = memo(() => {
 
                 </div>
                 <div className="text-center">
-                    <a className="btn btn-black" href="#" role="button">
-                        View All
-                        <Icon icon="la:arrow-right" />
-                    </a>
+                    <Button
+                        variant="btnBlack"
+                        btnText="View All"
+                        marginTop="mt-10"
+                    />
                 </div>
             </div>
 

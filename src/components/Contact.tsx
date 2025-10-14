@@ -1,5 +1,8 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import { memo } from "react";
+import { Button } from "./utility/Button/Button";
 
 export const Contact = memo(() => {
     return (
@@ -347,34 +350,12 @@ export const Contact = memo(() => {
                                     ></textarea>
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    className="btn btn-black"
-                                    style={{
-                                        color: '#fff',
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontFamily: 'var(--font-oswald), Oswald, sans-serif',
-                                        fontSize: '18px',
-                                        boxSizing: 'border-box',
-                                        padding: '20px 40px',
-                                        fontWeight: '400',
-                                        lineHeight: '1',
-                                        overflow: 'hidden',
-                                        letterSpacing: '0.08em',
-                                        textTransform: 'uppercase',
-                                        marginTop: '25px',
-                                        borderRadius: '0',
-                                        transition: 'all 0.3s ease',
-                                        textDecoration: 'none',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        background: '#111'
-                                    }}
-                                >
-                                    Send It
-                                </button>
+                                <Button
+                                    variant="btnBlack"
+                                    className="hidden"
+                                    btnText="Send It"
+                                    marginTop="mt-[25px]"
+                                />
                             </form>
                         </div>
                     </div>
