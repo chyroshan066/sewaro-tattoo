@@ -1,0 +1,44 @@
+.contactWrap{
+  padding: 150px 0;
+  margin-bottom: 0;
+}
+.contactWrap .contactInfo .contactInfoList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+.contactWrap .contactInfo .contactInfoList li {
+  margin-bottom: 14px;
+}
+.contactWrap .contactInfo .contactInfoList a:hover{
+  color: #444;
+}
+.contactWrap .contactForm{
+  margin-top: 75px;
+}
+.contactWrap .contactForm .formGroup{
+  margin-bottom: 45px;
+  position: relative;
+}
+.contactWrap .contactForm .formGroup input::placeholder,
+.contactWrap .contactForm .formGroup textarea::placeholder {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.06em;
+  color: #555;
+  font-family: var(--font-raleway), sans-serif;
+  opacity: 1; 
+}
+
+@media screen and (max-width:768px){
+    .contactWrap .contactForm{
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .contactWrap .container .row .contactInfo,
+  .contactWrap .container .row .contactForm{
+    margin-bottom: 60px;
+  }
+}

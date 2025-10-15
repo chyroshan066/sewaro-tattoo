@@ -231,6 +231,11 @@
 
 @layer components {
   /* REUSABLE STYLES */
+  .custom-container {
+    max-width: 1300px;
+    padding: 0 0.75rem;
+    margin: 0 auto;
+  } 
   .container {
     max-width: 1300px;
   } 
@@ -269,15 +274,6 @@
     padding-right: 15px;
     padding-left: 15px;
   }
-  
-  /* SECTION TITLE */
-  .sec-title h1{
-    display: block;
-    font-size: 85px;
-    text-transform: uppercase;
-    color: #111; 
-    margin-bottom: 75px; 
-  }
 
   /* BILLBOARD */
   .billboard-wrap{
@@ -307,16 +303,6 @@
     margin-left: -25px;
     padding-right: 29px;
   }
-  .about-wrap .about-me-content .sec-title h1{
-    margin-bottom: 38px;
-    font-family: var(--font-oswald), Oswald, sans-serif;
-    font-weight: 400;
-    font-size: 85px;
-    text-transform: uppercase;
-    color: #111;
-    line-height: 104%;
-    letter-spacing: 0.03em;
-  }
   .about-wrap .short-description{
     padding-left: 18%;
   }
@@ -344,17 +330,7 @@
   section.gallery-wrap .container {
     padding-left: 0 !important;
   }
-  .gallery-wrap .sec-title h1 {
-    font-family: var(--font-oswald), sans-serif !important;
-    font-weight: 400 !important;
-    font-size: 85px !important;
-    text-transform: uppercase !important;
-    color: #111 !important;
-    line-height: 104% !important;
-    letter-spacing: 0.03em !important;
-    margin-bottom: 75px !important;
-  }
-  section.gallery-wrap .container .sec-title h1 {
+  section.gallery-wrap .container h1 {
     padding-left: 0 !important;
     margin-left: var(--title-offset) !important;
   }
@@ -693,47 +669,6 @@
     color: #ACACAC;
   }
 
-  /* CONTACT US */
-  .contact-wrap{
-    padding: 150px 0;
-    margin-bottom: 0;
-  }
-  .contact-wrap .contact-info .contact-info-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-  }
-  .contact-wrap .contact-info .contact-info-list li {
-    margin-bottom: 14px;
-  }
-  .contact-wrap .contact-info .contact-info-list .iconify{
-    margin-right: 10px;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .contact-wrap .contact-info .contact-info-list a:hover{
-    color: #444;
-  }
-  .contact-wrap .contact-form{
-    margin-top: -90px;
-    margin-left: 40px;
-  }
-  .contact-wrap .contact-form .form-group{
-    margin-bottom: 45px;
-    position: relative;
-  }
-  .contact-wrap .contact-form .form-group input::placeholder,
-  .contact-wrap .contact-form .form-group textarea::placeholder {
-    font-style: italic;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    letter-spacing: 0.06em;
-    color: #555;
-    font-family: var(--font-raleway), sans-serif;
-    opacity: 1; 
-  }
-
   /* FOOTER */
   .main-footer .widgets-section{
     padding-bottom: 127px;
@@ -810,10 +745,6 @@
   .about-wrap .short-description {
     padding-left: 0;
   }
-  .about-wrap .about-me-content .sec-title h1 {
-    font-size: 60px;
-    line-height: 110%;
-  }
 }
 
 @media screen and (max-width: 575px) {
@@ -872,15 +803,6 @@
     margin-left: 0;
   }
 
-  /* CONTACT US */
-  .contact-wrap .contact-form{
-    margin-top: 0;
-    margin-left: 0;
-  }
-  .contact-wrap .container .row .contact-info,.contact-form{
-    margin-bottom: 60px;
-  }
-
   /* FOOTER */
   .main-footer .widgets-section{
     padding-bottom: 66px;
@@ -925,11 +847,6 @@
 }
 
 @media screen and (max-width:800px){
-  /* SECTION TITLE */  
-  .sec-title h1{
-    font-size: 76px;
-  }
-
   /* BILLBOARD */
   .billboard-wrap .billboard-bg-img .billboard-content h1{
     font-size: 90px;
@@ -949,9 +866,6 @@
     margin-top: 0;
     flex: 100%;
     max-width: 100%;
-  }
-  .about-wrap .about-me-content .sec-title h1 {
-    font-size: 76px;
   }
 
   /* TESTIMONIALS */
@@ -1059,29 +973,3 @@
   }
 }
 
-@media (min-width: 1300px) {
-  /* SERVICES */
-  .services-wrap .container {
-    max-width: 1300px;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials-wrap .container {
-    max-width: 1300px;
-  }
-
-  /* INTERVIEW */
-  .interview-wrap .container {
-    max-width: 1300px;
-  }
-
-  /* CONTACT */
-  .contact-wrap .container {
-    max-width: 1300px;
-  }
-
-  /* FOOTER */
-  .main-footer .container {
-    max-width: 1300px;
-  }
-}

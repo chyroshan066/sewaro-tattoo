@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { memo } from "react";
+import { TitleHeader } from "./utility/TitleHeader/TitleHeader";
 
 export const About = memo(() => (
     <section
@@ -27,12 +28,11 @@ export const About = memo(() => (
                 </div>
 
                 <div className="col-md-6 about-me-content">
-                    {/* Sec Title */}
-                    <div className="sec-title">
-                        <h1 style={{ fontSize: "85px" }}>
-                            My <br />Story:
-                        </h1>
-                    </div>
+
+                    <TitleHeader
+                        text1="My"
+                        text2="Story"
+                    />
 
                     <div className="short-description">
                         <p>In velit arcu posuere integer. Dolor sit amet, consectetur nun adipiscing elit. Duis porttitor massa tellus hac vel ante sit sed scelerisque praesent duis volutpat laoreet.</p>

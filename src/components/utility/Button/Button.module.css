@@ -47,7 +47,7 @@ a.btnOutline:hover{
 a.btnBlank{
   color: #111;
   padding: 0;
-  margin: 0;
+  margin: 22px 0 0 0;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -55,12 +55,14 @@ a.btnBlank{
   font-family: var(--font-raleway), sans-serif;
   font-size: 18px;
   line-height: 21px;
-  transition-duration: 0.3s;
+  transition-duration: all 0.3s ease;
   text-transform: none;
   font-weight: 500;
   letter-spacing: 0.02em;
   border-bottom: 1px solid #111;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
+  text-decoration: none;
+  border-radius: ;
 }
 a.btnBlank:hover{  
   color: #444;
@@ -69,3 +71,9 @@ a.btnBlank:hover{
 a.btnBlank .iconify {
   margin-left: 0;
 } 
+
+@media screen and (max-width:768px) {
+  a.btnBlank{
+    margin-bottom: 40px;
+  }
+}

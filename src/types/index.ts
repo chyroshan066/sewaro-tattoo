@@ -6,6 +6,10 @@ interface Name {
     name: string;
 }
 
+export interface Text {
+    text: string;
+}
+
 export interface IconType {
     icon: string;
 }
@@ -18,8 +22,7 @@ export interface Service extends Name {
     percent: number;
 }
 
-export interface Testimonial {
-    text: string;
+export interface Testimonial extends Text {
     author: string;
     tag: string;
 }

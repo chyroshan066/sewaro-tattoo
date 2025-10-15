@@ -14,20 +14,28 @@ export const Button = memo(({
     marginTop?: string
 }) => (
     <a
-        className={`${styles.btn} ${styles[variant]} ${marginTop}`}
+        className={`${variant === "btnBlank" ? '' : styles.btn} ${styles[variant]} ${marginTop}`}
         href="#"
         role="button"
         onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#fff';
-            e.currentTarget.style.color = '#000';
+            if (variant !== "btnBlank") {
+                e.currentTarget.style.backgroundColor = '#fff';
+                e.currentTarget.style.color = '#000';
+            }
         }}
         onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-            e.currentTarget.style.color = '#fff';
+            if (variant !== "btnBlank") {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#fff';
+            }
         }}
     >
         {btnText}
-        <Icon icon="la:arrow-right" style={{ marginLeft: '8px' }} className={className} />
+        <Icon
+            icon="la:arrow-right"
+            style={{ marginLeft: '8px' }}
+            className={`${className} ${variant === "btnBlank" ? 'hidden' : 'block'}`}
+        />
     </a>
 ));
 

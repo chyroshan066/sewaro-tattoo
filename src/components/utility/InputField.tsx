@@ -3,7 +3,6 @@
 import { ContactFormData, SubscriptionFormData } from "@/middlewares/schema";
 import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
-import styles from "./InputField.module.css";
 
 interface FormFieldProps {
     id: keyof ContactFormData | keyof SubscriptionFormData;
@@ -14,6 +13,7 @@ interface FormFieldProps {
     isTextarea?: boolean;
 };
 
+// Modified: Updated ErrorMessage styling to match contact section design theme
 export const ErrorMessage = memo(({
     message
 }: {
@@ -22,13 +22,16 @@ export const ErrorMessage = memo(({
     if (!message) return null;
 
     return <span style={{
-        color: 'var(--lavender-blue)',
-        fontSize: '0.875rem !important',
+        color: '#d32f2f',
+        fontSize: '14px',
         display: 'block',
-        fontFamily: 'var(--fontFamily-roboto)',
-        marginTop: '0',
+        fontFamily: 'var(--font-raleway), Raleway, sans-serif',
+        marginTop: '8px',
         paddingTop: '0',
-        lineHeight: '1.2'
+        lineHeight: '1.2',
+        letterSpacing: '0.02em',
+        fontStyle: 'italic',
+        fontWeight: '400'
     }}>
         {message}
     </span>;
@@ -73,7 +76,6 @@ export const InputField = memo((
                     autoComplete="off"
                     disabled={disabled}
                     onChange={handleInputChange}
-                    className={styles.textarea}
                     rows={1}
                     style={{
                         width: '100%',
@@ -104,7 +106,6 @@ export const InputField = memo((
                 placeholder={placeholder}
                 type="text"
                 autoComplete="off"
-                className={styles.inputField}
                 onChange={handleInputChange}
                 disabled={disabled}
                 style={{

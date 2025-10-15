@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useRef } from "react";
 import { Button } from "./utility/Button/Button";
+import { TitleHeader } from "./utility/TitleHeader/TitleHeader";
 
 interface ChocolatInstance {
     destroy: () => void;
@@ -150,12 +151,10 @@ export const Gallery = memo(() => {
             ref={galleryRef}
         >
             <div className="container">
-                <div className="sec-title">
-                    <h1>
-                        Check My <br />
-                        Gallery:
-                    </h1>
-                </div>
+                <TitleHeader
+                    text1="Check My"
+                    text2="Gallery"
+                />
             </div>
 
             <div className="container-fluid">

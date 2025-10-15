@@ -1,0 +1,16 @@
+.secTitle h1 {
+  font-family: var(--font-oswald), sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 85px !important;
+  text-transform: uppercase !important;
+  color: #111 !important;
+  line-height: 104% !important;
+  letter-spacing: 0.03em !important;
+  margin-bottom: 75px !important;
+}
+
+@media screen and (max-width:800px){ 
+  .secTitle h1{
+    font-size: 76px;
+  }
+}
