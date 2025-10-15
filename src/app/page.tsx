@@ -6,7 +6,7 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header/Header";
 import { Hero } from "@/components/Hero";
 import { Interview } from "@/components/Interview";
-import { Preloader } from "@/components/Preloader";
+import { Preloader } from "@/components/Preloader/Preloader";
 import { Services } from "@/components/Services";
 import { Testimonials } from "@/components/Testimonials";
 

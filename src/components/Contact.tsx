@@ -1,11 +1,122 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { memo } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { Button } from "./utility/Button/Button";
+import { InputField } from "./utility/InputField/InputField";
+import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { onSubmit } from "@/utils/contactData";
+
+interface AlertState {
+    isVisible: boolean;
+    type: "success" | "error";
+    title?: string;
+    message: string;
+}
+
+const initialValues: ContactFormData = {
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+};
 
 export const Contact = memo(() => {
-    return (
+    const [alertState, setAlertState] = useState<AlertState>({
+        isVisible: false,
+        type: "success",
+        message: "",
+    });
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: {
+            errors,
+            isSubmitting,
+        }
+    } = useForm<ContactFormData>({
+        defaultValues: initialValues,
+        resolver: zodResolver(ContactFormSchema),
+        mode: "onChange", // Enable real-time validation for better UX
+        reValidateMode: "onChange", // Re-validate on every change
+        criteriaMode: "all", // Show all validation errors
+        shouldFocusError: true, // Focus on error field
+    });
+
+    const showAlert = useCallback((
+        type: AlertState["type"],
+        message: string,
+        title?: string
+    ) => {
+        setAlertState({
+            isVisible: true,
+            type,
+            message,
+            title,
+        });
+    }, []);
+
+    const hideAlert = useCallback(() => {
+        setAlertState(prev => ({
+            ...prev,
+            isVisible: false,
+        }));
+    }, []);
+
+    const handleFormSubmit = useCallback(async (data: ContactFormData) => {
+        try {
+            await onSubmit(data);
+
+            showAlert(
+                "success",
+                "Thank you! Your appointment has been booked successfully. We look forward to serving you.",
+                "Appointment Booked!"
+            );
+
+            reset(initialValues);
+        } catch (error) {
+            const errorMessage = error instanceof Error
+                ? error.message
+                : "Something went wrong while booking an appointment. Please try again.";
+
+            showAlert(
+                "error",
+                errorMessage,
+                "Sending Failed"
+            );
+
+            console.error('Form submission error:', error);
+        }
+    }, [reset, showAlert]);
+
+    const onFormSubmit = handleSubmit(handleFormSubmit);
+
+    const isButtonDisabled = useMemo(
+        () => isSubmitting,
+        [isSubmitting]
+    );
+
+    const buttonText = useMemo(
+        () => isSubmitting ? "Booking..." : "Book An Appointment",
+        [isSubmitting]
+    );
+
+    return <>
+        {/* <Alert
+            type={alertState.type}
+            title={alertState.title}
+            message={alertState.message}
+            isVisible={alertState.isVisible}
+            onDismiss={hideAlert}
+            autoDismiss={true}
+            autoDismissDelay={6000}
+            className="sm:max-w-md"
+        /> */}
+
         <section
             id="contact"
             className="contact-wrap"
@@ -288,66 +399,36 @@ export const Contact = memo(() => {
                     <div className="col-md-6">
                         <div className="contact-form">
                             <form>
+
                                 <div className="form-group">
-                                    <input
-                                        type="text"
-                                        name="username"
+                                    <InputField
+                                        id="name"
                                         placeholder="Write your name here"
-                                        required
-                                        style={{
-                                            width: '100%',
-                                            paddingBottom: '16px',
-                                            border: 'none',
-                                            borderBottom: '1px solid #111',
-                                            background: 'transparent',
-                                            fontSize: '16px',
-                                            lineHeight: '100%',
-                                            color: '#333',
-                                            fontFamily: 'var(--font-raleway), Raleway, sans-serif'
-                                        }}
+                                        register={register("name")}
+                                        error={errors.name?.message}
+                                        disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <input
-                                        type="email"
-                                        name="email"
+                                    <InputField
+                                        id="email"
                                         placeholder="Write your email address"
-                                        required
-                                        style={{
-                                            width: '100%',
-                                            paddingBottom: '16px',
-                                            border: 'none',
-                                            borderBottom: '1px solid #111',
-                                            background: 'transparent',
-                                            fontSize: '16px',
-                                            lineHeight: '100%',
-                                            color: '#333',
-                                            fontFamily: 'var(--font-raleway), Raleway, sans-serif'
-                                        }}
+                                        register={register("email")}
+                                        error={errors.email?.message}
+                                        disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <textarea
-                                        name="message"
+                                    <InputField
+                                        id="message"
                                         placeholder="Write your messages here"
-                                        rows={1}
-                                        style={{
-                                            width: '100%',
-                                            paddingBottom: '16px',
-                                            border: 'none',
-                                            borderBottom: '1px solid #111',
-                                            background: 'transparent',
-                                            fontSize: '16px',
-                                            lineHeight: '100%',
-                                            color: '#333',
-                                            fontFamily: 'var(--font-raleway), Raleway, sans-serif',
-                                            resize: 'none',
-                                            height: '38px',
-                                            minHeight: '38px'
-                                        }}
-                                    ></textarea>
+                                        register={register("message")}
+                                        isTextarea={true}
+                                        error={errors.message?.message}
+                                        disabled={isSubmitting}
+                                    />
                                 </div>
 
                                 <Button
@@ -362,7 +443,7 @@ export const Contact = memo(() => {
                 </div>
             </div>
         </section>
-    );
+    </>;
 });
 
 Contact.displayName = "Contact";

@@ -1,6 +1,7 @@
 "use client";
 
 import { memo, useEffect, useState } from "react";
+import styles from "./Preloader.module.css";
 
 export const Preloader = memo(() => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -23,8 +24,8 @@ export const Preloader = memo(() => {
     }, []);
 
     return (
-        <div id="preloader" className={isLoaded ? "hide-preloader" : ""}>
-            <div id="loader"></div>
+        <div id={styles.preloader} className={isLoaded ? styles.hidePreloader : ""}>
+            <div id={styles.loader} />
         </div>
     );
 });
