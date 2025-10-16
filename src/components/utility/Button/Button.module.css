@@ -22,11 +22,11 @@
  }
 
 /* Btn black */
-a.btnBlack{
+.btnBlack{
   background: #111 !important;
   border: none !important;
 }
-a.btnBlack:hover{
+.btnBlack:hover{
   color: #fff !important;
   background-color: #444 !important;
   border: none;

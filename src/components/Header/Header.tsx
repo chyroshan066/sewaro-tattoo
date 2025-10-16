@@ -106,12 +106,19 @@ export const Header = memo(() => {
                         }
                     }}
                 >
-                    <Image
-                        src="/images/logo.webp"
-                        alt="logo"
-                        width={188}
-                        height={90}
-                    />
+                    <div className={styles.logoContainer}>
+                        <Image
+                            src="/images/logo.webp"
+                            alt="logo"
+                            width={92}
+                            height={92}
+                            style={{ objectFit: 'contain' }}
+                        />
+                        <div className={styles.logoTextContainer}>
+                            <span className={styles.logoText}>SEWARO</span>
+                            <span className={styles.logoText}>TATTOO</span>
+                        </div>
+                    </div>
                 </Link>
             </div>
 

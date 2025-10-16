@@ -7,7 +7,7 @@ export const SOCIALLINKS: SocialLink[] = [
     },
     {
         icon: "la:instagram",
-        href: "",
+        href: "https://www.instagram.com/sewaro.tattoo/",
     },
     {
         icon: "ic:baseline-tiktok",

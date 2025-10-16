@@ -18,10 +18,45 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.headerWrap .headerLogo a {
+  text-decoration: none !important;
+}
+.headerWrap .headerLogo a:hover,
+.headerWrap .headerLogo a:focus,
+.headerWrap .headerLogo a:visited {
+  text-decoration: none !important;
+}
+
+.headerWrap .headerLogo .logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
 .headerWrap .headerLogo img {
-  width: 188px;
-  height: 90px;
   margin: 0;
+  height: 92px;
+  width: 92px;
+  object-fit: contain;
+}
+.headerWrap .headerLogo .logoTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  height: 92px;
+}
+.headerWrap .headerLogo .logoText {
+  font-family: var(--font-raleway);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #111;
+  white-space: nowrap;
+
+  line-height: 0.95;
+  text-decoration: none !important;
 }
 .headerWrap .headerNavWrap {
   display: inline-block;
@@ -195,9 +230,19 @@
     transform: none;
     left: auto;
   }
+  .headerWrap .headerLogo .logoContainer {
+    gap: 10px;
+  }
   .headerWrap .headerLogo img {
-    width: 145px;
     height: 69px;
+    width: 69px;
+  }
+  .headerWrap .headerLogo .logoTextContainer {
+    height: 69px;
+  }
+  .headerWrap .headerLogo .logoText {
+    font-size: 22px;
+    letter-spacing: 0.05em;
   }
   .headerWrap .headerNavWrap {
     display: none;
