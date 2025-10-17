@@ -227,6 +227,24 @@
     max-width:100%;
     height:auto;  
   }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset !important;
+    border-bottom: 1px solid #B6B6B6 !important;
+    color: #333;
+  }
+  input:-moz-autofill,
+  textarea:-moz-autofill {
+    background-color: #f9f9f9 !important;
+    border-bottom: 1px solid #B6B6B6 !important;
+    color: #333;
+  }
 }
 
 @layer components {
@@ -669,51 +687,6 @@
     color: #ACACAC;
   }
 
-  /* FOOTER */
-  .main-footer .widgets-section{
-    padding-bottom: 127px;
-    padding-top: 156px;
-  }
-  .main-footer .widgets-section .footer-column .footer-widget.links-widget{
-    padding-left: 20%;
-  }
-  .main-footer .widgets-section .footer-widget a{
-    letter-spacing: 0.02em;
-  }
-  .main-footer .widgets-section .footer-widget a{
-    margin-bottom: 24px;
-  }
-  .main-footer .widgets-section .footer-widget a:hover{
-    font-weight: 400;
-    color: #fff;
-  }
-  .main-footer .widgets-section .about-widget .contact-info-list a{
-    font-weight: 600;
-  }
-  .main-footer .widgets-section .about-widget .contact-info-list a:hover{
-    font-weight: 600;
-    color: #fff;
-  }
-  .main-footer .widgets-section .newsletter-widget .form-group ::placeholder{
-    font-style: italic;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.06em;
-    text-transform: capitalize;
-    color: #DBDBDB;
-  }
-  .main-footer .widgets-section .newsletter-widget .form-group input{
-    position: absolute;
-    width: 100%;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #B6B6B6;
-    background: transparent;
-    font-size: 16px;
-    line-height: 100%;
-    color: #fff;
-  }
-
   /* OVERRIDE */
   .modal-dialog {
     max-width: 800px;
@@ -801,17 +774,6 @@
   }
   .articles-wrap .article-post-item h4{
     margin-left: 0;
-  }
-
-  /* FOOTER */
-  .main-footer .widgets-section{
-    padding-bottom: 66px;
-  }
-  .main-footer .widgets-section .footer-column{
-    margin-bottom: 60px;
-  }
-  .main-footer .widgets-section .footer-column .footer-widget.links-widget {
-    padding-left: 0;
   }
 
   /* OVERRIDE */

@@ -72,6 +72,17 @@ a.btnBlank .iconify {
   margin-left: 0;
 } 
 
+.footerBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #F2F2F2;
+  fontSize: 26px;
+}
+
 @media screen and (max-width:768px) {
   a.btnBlank{
     margin-bottom: 40px;

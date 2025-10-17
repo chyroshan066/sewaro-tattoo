@@ -9,17 +9,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit } from "@/utils/contactData";
 import styles from "./Contact.module.css";
-import { IconType, Text } from "@/types";
+import { AlertState, IconType, Text } from "@/types";
 import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
 import { Alert } from "../Alert";
 import { SubmitButton } from "../utility/Button/SubmitButton";
-
-interface AlertState {
-    isVisible: boolean;
-    type: "success" | "error";
-    title?: string;
-    message: string;
-}
+import { useAlert } from "@/hooks/useAlert";
 
 interface Branch {
     address: string;
@@ -105,11 +99,7 @@ const getIconList = (branch: typeof BRANCHES[0]): GetIcon[] => {
 };
 
 export const Contact = memo(() => {
-    const [alertState, setAlertState] = useState<AlertState>({
-        isVisible: false,
-        type: "success",
-        message: "",
-    });
+    const { alertState, showAlert, hideAlert } = useAlert();
 
     const {
         register,
@@ -127,26 +117,6 @@ export const Contact = memo(() => {
         criteriaMode: "all", // Show all validation errors
         shouldFocusError: true, // Focus on error field
     });
-
-    const showAlert = useCallback((
-        type: AlertState["type"],
-        message: string,
-        title?: string
-    ) => {
-        setAlertState({
-            isVisible: true,
-            type,
-            message,
-            title,
-        });
-    }, []);
-
-    const hideAlert = useCallback(() => {
-        setAlertState(prev => ({
-            ...prev,
-            isVisible: false,
-        }));
-    }, []);
 
     const handleFormSubmit = useCallback(async (data: ContactFormData) => {
         try {
@@ -344,6 +314,7 @@ export const Contact = memo(() => {
                                     btnText={buttonText}
                                     marginTop="mt-[25px]"
                                     isButtonDisabled={isButtonDisabled}
+                                    variant="btnBlack"
                                 />
 
                             </form>

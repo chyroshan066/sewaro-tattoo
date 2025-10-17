@@ -3,17 +3,18 @@
 import { ContactFormData, SubscriptionFormData } from "@/middlewares/schema";
 import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
+import styles from "../Footer/Footer.module.css";
 
-interface FormFieldProps {
+export interface FormFieldProps {
     id: keyof ContactFormData | keyof SubscriptionFormData;
     placeholder?: string;
     register: UseFormRegister<ContactFormData | SubscriptionFormData> | UseFormRegisterReturn;
     error?: string;
     disabled?: boolean;
     isTextarea?: boolean;
+    isFooter?: boolean;
 };
 
-// Modified: Updated ErrorMessage styling to match contact section design theme
 export const ErrorMessage = memo(({
     message
 }: {
@@ -47,6 +48,7 @@ export const InputField = memo((
         error,
         disabled,
         isTextarea = false,
+        isFooter = false,
     }: FormFieldProps
 ) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,6 +97,22 @@ export const InputField = memo((
                 <ErrorMessage message={error} />
             </div>
         );
+    }
+
+    if (isFooter) {
+        const registerProps = getRegisterProps();
+
+        return <div className={styles.footerInputField}>
+            <input
+                {...registerProps}
+                type="text"
+                placeholder="Your email address"
+                autoComplete="off"
+                onChange={handleInputChange}
+                disabled={disabled}
+            />
+            <ErrorMessage message={error} />
+        </div>;
     }
 
     const registerProps = getRegisterProps();

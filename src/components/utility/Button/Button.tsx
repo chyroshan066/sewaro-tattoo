@@ -1,13 +1,11 @@
 import { Icon } from "@iconify/react";
 import { memo } from "react";
 import styles from "./Button.module.css";
-import { Link } from "@/types";
+import { Btn, Link } from "@/types";
 
-interface ButtonType extends Link {
-    variant: string;
+interface ButtonType extends Link, Btn {
     btnText: string;
     className?: string;
-    marginTop?: string;
     newTab?: boolean;
 }
 

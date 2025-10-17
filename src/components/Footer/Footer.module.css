@@ -1,0 +1,55 @@
+.mainFooter .widgetsSection{
+  padding-bottom: 127px;
+  padding-top: 156px;
+}
+.mainFooter .widgetsSection .footerColumn .footerWidget.linksWidget{
+  padding-left: 20%;
+}
+.mainFooter .widgetsSection .footerWidget a{
+  letter-spacing: 0.02em;
+}
+.mainFooter .widgetsSection .footerWidget a{
+  margin-bottom: 24px;
+}
+.mainFooter .widgetsSection .footerWidget a:hover{
+  font-weight: 400;
+  color: #fff;
+}
+.mainFooter .widgetsSection .aboutWidget .contactInfoList a{
+  font-weight: 600;
+}
+.mainFooter .widgetsSection .aboutWidget .contactInfoList a:hover{
+  font-weight: 600;
+  color: #fff;
+}
+.footerInputField ::placeholder{
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.06em;
+  text-transform: capitalize;
+  color: #DBDBDB;
+}
+.footerInputField input{
+  position: absolute;
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #B6B6B6;
+  background: transparent;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fff;
+}
+
+@media screen and (max-width:768px){
+  .mainFooter .widgetsSection{
+    padding-bottom: 66px;
+  }
+  .mainFooter .widgetsSection .footerColumn{
+    margin-bottom: 60px;
+  }
+  .mainFooter .widgetsSection .footerColumn .footerWidget.linksWidget {
+    padding-left: 0;
+  }
+}
