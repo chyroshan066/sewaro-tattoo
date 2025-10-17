@@ -5,7 +5,7 @@ import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
 import styles from "../Footer/Footer.module.css";
 
-export interface FormFieldProps {
+interface FormFieldProps {
     id: keyof ContactFormData | keyof SubscriptionFormData;
     placeholder?: string;
     register: UseFormRegister<ContactFormData | SubscriptionFormData> | UseFormRegisterReturn;
@@ -32,7 +32,8 @@ export const ErrorMessage = memo(({
         lineHeight: '1.2',
         letterSpacing: '0.02em',
         fontStyle: 'italic',
-        fontWeight: '400'
+        fontWeight: '400',
+        width: '100%'
     }}>
         {message}
     </span>;
@@ -102,16 +103,18 @@ export const InputField = memo((
     if (isFooter) {
         const registerProps = getRegisterProps();
 
-        return <div className={styles.footerInputField}>
-            <input
-                {...registerProps}
-                type="text"
-                placeholder="Your email address"
-                autoComplete="off"
-                onChange={handleInputChange}
-                disabled={disabled}
-            />
-            <ErrorMessage message={error} />
+        return <div className="relative">
+            <div className={styles.footerInputField}>
+                <input
+                    {...registerProps}
+                    type="text"
+                    placeholder="Your email address"
+                    autoComplete="off"
+                    onChange={handleInputChange}
+                    disabled={disabled}
+                />
+                <ErrorMessage message={error} />
+            </div>
         </div>;
     }
 

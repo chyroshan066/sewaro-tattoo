@@ -1,0 +1,79 @@
+.billboardWrap{
+    margin-top: 0;
+    padding: 0;
+  }
+  .billboardWrap .billboardBgImg{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  .billboardWrap .billboardBgImg .billboardContent p{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 200%;
+    letter-spacing: 0.02em;
+    color: #fff;
+    font-family: var(--font-raleway), sans-serif;
+  }
+  .billboardWrap .billboardBgImg .billboardContent a.btn{
+    margin-top: 35px;
+  }
+
+@media screen and (max-width: 576px){
+  .billboardWrap .billboardBgImg .billboardContent h1{
+    font-size: 60px;
+  } 
+}
+
+@media screen and (max-width: 799px) {
+  /* BILLBOARD */
+  .billboardWrap .billboardBgImg .billboardContent h1 {
+    font-size: clamp(50px, 10vw, 70px) !important;
+  }
+}
+
+@media screen and (max-width:800px){
+  /* BILLBOARD */
+  .billboardWrap .billboardBgImg .billboardContent h1{
+    font-size: 90px;
+  }
+  .billboardWrap .billboardBgImg .billboardContent p{
+    font-size: 18px;
+  }
+  .billboardContent .row.justifyContentEnd .colMd6 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 999px) and (min-width: 800px) {
+  /* BILLBOARD */
+  .billboardWrap .billboardBgImg .billboardContent {
+    padding: 0 20px;
+  } 
+  .billboardWrap .billboardBgImg .billboardContent .row.justifyContentCenter {
+    justify-content: center !important;
+    margin: 0 auto;
+  }
+  .billboardWrap .billboardBgImg .billboardContent .colMd8 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+    text-align: center;
+  }
+  .billboardWrap .billboardBgImg .billboardContent h1 {
+    font-size: 85px !important;
+    line-height: 90% !important;
+    margin-bottom: 25px !important;
+  }
+  .billboardWrap .billboardBgImg .billboardContent p {
+    font-size: 18px !important;
+    line-height: 180% !important;
+    margin-bottom: 35px !important;
+    padding: 0 10px;
+  }
+  .billboardWrap .billboardBgImg .billboardContent .btn {
+    padding: 18px 35px !important;
+    font-size: 16px !important;
+    margin-top: 0 !important;
+  }
+}

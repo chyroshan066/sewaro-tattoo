@@ -1,0 +1,94 @@
+.interviewWrap{
+    padding: 0;
+  }
+  .interviewWrap .interviewBgImg{
+    height: 812px;
+    width: 100%;
+    padding: 0;  
+    display: flex;
+    align-items: center;
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn{
+    display: flex;
+    align-items: center;
+    margin-top: 33px;
+    margin-left: 9px;
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn a.playBtn svg.iconify{
+    margin-left: 4%;
+    color: #000; 
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn a.playBtn{
+    position: relative;  
+    font-size: 35px;
+    color: #000;  
+    background-color: #fff;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;  
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn a.playBtn:before{
+    content: "";
+    opacity: 0.4;
+    border: 1px solid #fff;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    display: block;
+    width: 91px;
+    height: 91px;
+    border-radius: 50%;
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn .btn{
+    margin: 0;
+  }
+  .interviewWrap .interviewBgImg .interviewContent .videoBtn .btn:hover{
+    color: #fff;
+  }
+  .modalDialog {
+    max-width: 800px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .modalBody .btnClose::before,
+  .modalBody .btnClose::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+  }
+  .modalBody .btnClose::before {
+    transform: rotate(45deg);
+  }
+  .modalBody .btnClose::after {
+    transform: rotate(-45deg);
+  }
+  .modalBody .btnClose:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+@media screen and (max-width:768px){
+ .modalBody .btnClose {
+    left: auto;
+    right: 10px;
+    top: 10px;
+    background-color: #fff;
+  }
+  .modalBody .btnClose::before,
+  .modalBody .btnClose::after {
+    background-color: #111;
+  }
+}
+
+@media screen and (max-width:800px){
+  .interviewWrap .interviewBgImg .interviewContent h2{    
+    font-size: 55px;
+  }
+}

@@ -2,19 +2,19 @@ import { Service } from "@/types";
 
 export const SERVICES: Service[] = [
     {
-        name: "Full Body Tattoo",
-        percent: 90,
-    },
-    {
-        name: "Safely Piercing",
-        percent: 80,
-    },
-    {
-        name: "Full colour tattoo",
-        percent: 75,
-    },
-    {
-        name: "Temporary tattoo",
+        name: "Client Satisfaction Rate",
         percent: 95,
+    },
+    {
+        name: "Safety & Hygiene Compliance",
+        percent: 98,
+    },
+    {
+        name: "Custom Design Requests",
+        percent: 85,
+    },
+    {
+        name: "Artist Expertise Level",
+        percent: 90,
     },
 ];

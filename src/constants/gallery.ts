@@ -1,43 +1,53 @@
-import { Gallery } from "@/types";
-
-const GALLERY: Gallery[] = [
-    {
-        imgSrc: "/images/gallery/1.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/2.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/3.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/4.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/5.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/6.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/7.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
-    {
-        imgSrc: "/images/gallery/8.jpg",
-        title: "Only thing remain with us is tattoo",
-    },
+const GALLERY: string[] = [
+    "/images/gallery/g1.webp",
+    "/images/gallery/g2.webp",
+    "/images/gallery/g3.webp",
+    "/images/gallery/g4.webp",
+    "/images/gallery/g5.webp",
+    "/images/gallery/g6.webp",
+    "/images/gallery/g7.webp",
+    "/images/gallery/g8.webp",
+    "/images/gallery/g9.webp",
+    "/images/gallery/g10.webp",
+    "/images/gallery/g11.webp",
+    "/images/gallery/g12.webp",
+    "/images/gallery/g13.webp",
+    "/images/gallery/g14.webp",
+    "/images/gallery/g15.webp",
+    "/images/gallery/g16.webp",
+    "/images/gallery/g17.webp",
+    "/images/gallery/g18.webp",
+    "/images/gallery/g19.webp",
+    "/images/gallery/g20.webp",
+    "/images/gallery/g21.webp",
+    "/images/gallery/g22.webp",
+    "/images/gallery/g23.webp",
+    "/images/gallery/g24.webp",
+    "/images/gallery/g25.webp",
+    "/images/gallery/g26.webp",
+    "/images/gallery/g27.webp",
+    "/images/gallery/g28.webp",
+    "/images/gallery/g29.webp",
+    "/images/gallery/g30.webp",
+    "/images/gallery/g31.webp",
+    "/images/gallery/g32.webp",
 ];
 
-export const GALLERYCOLUMNS: Gallery[][] = [
+export const GALLERYCOLUMNS: string[][] = [
   [GALLERY[0], GALLERY[1]], 
   [GALLERY[2], GALLERY[3]], 
   [GALLERY[4], GALLERY[5]],
   [GALLERY[6], GALLERY[7]], 
+  [GALLERY[8], GALLERY[9]], 
+  [GALLERY[10], GALLERY[11]], 
+  [GALLERY[12], GALLERY[13]], 
+  [GALLERY[14], GALLERY[15]], 
+  [GALLERY[16], GALLERY[17]], 
+  [GALLERY[18], GALLERY[19]], 
+  [GALLERY[20], GALLERY[21]], 
+  [GALLERY[22], GALLERY[23]], 
+  [GALLERY[24], GALLERY[25]], 
+  [GALLERY[26], GALLERY[27]], 
+  [GALLERY[28], GALLERY[29]], 
+  [GALLERY[30], GALLERY[31]],  
 ];

@@ -253,7 +253,15 @@ export const Footer = memo(() => {
                 borderTop: "1px solid #2B2B2B",
                 fontFamily: "var(--font-raleway)"
             }}>
-                <div className="custom-container">@ 2023 <a href="https://templatesjungle.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none" }}>TemplatesJungle</a>. All rights reserved.</div>
+                <div className="custom-container">
+                    @ 2023 <span style={{
+                        color: "#fff",
+                        textDecoration: "none"
+                    }}>
+                        Sewaro Tattoo
+                    </span>
+                    . All rights reserved.
+                </div>
             </div>
 
         </footer>

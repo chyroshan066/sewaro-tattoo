@@ -1,0 +1,38 @@
+.aboutWrap .sectionImage{
+    margin-left: -25px;
+    padding-right: 29px;
+  }
+  .aboutWrap .shortDescription{
+    padding-left: 18%;
+  }
+  .aboutWrap .shortDescription p {
+    font-family: var(--font-raleway), Raleway, sans-serif;
+    font-size: 18px;
+    line-height: 187%;
+    font-weight: 400;
+    color: #555;
+    letter-spacing: normal;
+  }
+  .aboutWrap .row .aboutMeContent{
+    margin-top: 66px;
+  }
+  .aboutWrap .shortDescription a.btn{
+    margin-top: 24px;
+  }
+
+@media screen and (max-width:500px){
+  .aboutWrap .shortDescription {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width:800px){
+  .aboutWrap .sectionImage {
+    display: none;
+  }
+  .aboutWrap .row .aboutMeContent {
+    margin-top: 0;
+    flex: 100%;
+    max-width: 100%;
+  }
+}

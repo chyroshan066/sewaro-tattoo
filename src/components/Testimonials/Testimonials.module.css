@@ -1,0 +1,139 @@
+.testimonialsWrap{
+  padding-top: 0;
+}
+.testimonialsWrap .testimonialSlider .itemParagraph{
+  font-size: 36px;
+  line-height: 160%;
+  letter-spacing: 0.02em;
+  color: #111;
+  font-family: var(--font-raleway), sans-serif;
+  margin-bottom: 0;
+}
+.testimonialsWrap .testimonialSlider .itemContent{
+  position: relative;
+  padding-top: 4%;
+  padding-left: 20%;
+}
+.testimonialsWrap .testimonialSlider .itemContent .quotationImg{
+  position: absolute;
+  z-index: -10;
+  left: 70px;
+  top: 0px;
+}
+.testimonialsWrap .testimonialSlider .itemContent .authorName{
+  font-family: var(--font-oswald), Oswald;
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+  color: #111; 
+  display: flex;
+  align-items: center;
+}
+.itemContent .testimonialAuthor{
+  margin-top: 50px;
+}
+.itemContent .testimonialAuthor .authorName span{
+  font-weight: 300;
+  position: relative;
+}
+.itemContent .testimonialAuthor .authorName span::before{
+  content: '|';
+  margin: 0 20px;
+  color: #111;
+}
+.testimonialsWrap .testimonialSlider .authorPost{  
+  font-size: 14px;
+  line-height: 212.4%;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #757575;
+}
+.testimonialSliderBtn{
+  text-align: right;
+  margin-right: 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+.slideButtonNext, 
+.slideButtonPrev{
+  font-size: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.slideButtonNext a, 
+.slideButtonPrev a {
+  color: #111 !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+.slideButtonNext a:hover, 
+.slideButtonPrev a:hover {
+  color: #444;
+}
+.slideButtonNext.swiperButtonDisabled, 
+.slideButtonPrev.swiperButtonDisabled {
+  opacity: .25;
+  cursor: auto;
+  pointer-events: none;
+}
+.slideButtonNext.swiperButtonDisabled a, 
+.slideButtonPrev.swiperButtonDisabled a {
+  color: #999 !important;
+}
+.slideButtonNext .iconify,
+.slideButtonPrev .iconify {
+  color: inherit;
+}
+.testimonialSlider.swiper {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 576px){
+  .testimonialsWrap .testimonialSlider .itemParagraph {
+    font-size: 24px;
+    line-height: 130%;
+  }
+  .testimonialsWrap .testimonialSlider .itemContent .authorName {
+    font-size: 20px;
+  }
+  .slideButtonNext, 
+  .slideButtonPrev {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width:800px){
+  .testimonialsWrap{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .testimonialsWrap .testimonialSlider .itemParagraph{
+    font-size: 32px;
+    line-height: 140%;
+  }
+  .testimonialsWrap .testimonialSlider .itemContent{
+    padding: 0;
+    padding-top: 40px;
+  }
+  .testimonialsWrap .testimonialSlider .itemContent .quotationImg{
+    left: 0px;
+    top: -10px;
+  }
+  .testimonialsWrap .testimonialSlider .itemContent .authorName {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

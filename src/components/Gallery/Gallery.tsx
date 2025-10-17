@@ -3,9 +3,11 @@
 import { GALLERYCOLUMNS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { memo, useEffect, useRef } from "react";
-import { Button } from "./utility/Button/Button";
-import { TitleHeader } from "./utility/TitleHeader/TitleHeader";
+import { memo, useEffect, useRef, useState, useCallback } from "react";
+import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
+import styles from "./Gallery.module.css";
+import btnStyles from "../utility/Button/Button.module.css";
+import { Icon } from "@iconify/react";
 
 interface ChocolatInstance {
     destroy: () => void;
@@ -31,6 +33,36 @@ export const Gallery = memo(() => {
     const chocolatInstanceRef = useRef<ChocolatInstance>(null);
     const isInitializedRef = useRef<boolean>(false);
 
+    const [visibleColumns, setVisibleColumns] = useState(4);
+
+    const totalColumns = GALLERYCOLUMNS.length;
+    const currentColumns = GALLERYCOLUMNS.slice(0, visibleColumns);
+    const hasMoreColumns = visibleColumns < totalColumns;
+
+    const loadMoreImages = useCallback(() => {
+        setVisibleColumns(prev => Math.min(prev + 4, totalColumns));
+    }, [totalColumns]);
+
+    // Reinitialize Chocolat when columns change
+    useEffect(() => {
+        if (currentColumns.length > 0 && window.Chocolat && galleryRef.current) {
+            const imageLinks = galleryRef.current.querySelectorAll('.image-link');
+            if (imageLinks.length > 0) {
+                // Destroy previous instance
+                if (chocolatInstanceRef.current) {
+                    chocolatInstanceRef.current.destroy();
+                }
+
+                // Initialize new instance
+                chocolatInstanceRef.current = window.Chocolat(imageLinks, {
+                    imageSize: 'contain',
+                    loop: true,
+                });
+                isInitializedRef.current = true;
+            }
+        }
+    }, [currentColumns]);
+
     useEffect(() => {
         // Prevent multiple initializations
         if (isInitializedRef.current) return;
@@ -51,20 +83,20 @@ export const Gallery = memo(() => {
                 const style = document.createElement('style');
                 style.id = 'chocolat-custom-styles';
                 style.textContent = `
-                    .chocolat-overlay {
-                        background-color: #000 !important;
-                        opacity: 0.9 !important;
-                    }
-                    .chocolat-overlay.chocolat-visible {
-                        opacity: 0.9 !important;
-                    }
-                    .chocolat-wrapper {
-                        z-index: 99999 !important;
-                    }
-                    .chocolat-content {
-                        background: transparent;
-                    }
-                `;
+            .chocolat-overlay {
+                background-color: rgba(0, 0, 0, 0.85) !important;
+            }
+            .chocolat-wrapper {
+                z-index: 99999 !important;
+            }
+            .chocolat-content {
+                z-index: 100000 !important;
+            }
+            .chocolat-close, 
+            .chocolat-nav {
+                z-index: 100001 !important;
+            }
+        `;
                 document.head.appendChild(style);
             }
         };
@@ -145,34 +177,33 @@ export const Gallery = memo(() => {
     return (
         <section
             id="gallery"
-            className="gallery-wrap"
+            className={styles.galleryWrap}
             style={{ background: "#F9F9F9" }}
             ref={galleryRef}
         >
-            <div className="container">
+            <div className="custom-container">
                 <TitleHeader
                     text1="Check My"
                     text2="Gallery"
                 />
             </div>
 
-            <div className="container-fluid">
-                <div className="row popup-gallery">
+            <div className={styles.containerFluid}>
+                <div className={`row ${styles.popupGallery} ${styles.row}`}>
 
-                    {GALLERYCOLUMNS.map((column, columnIndex) => (
+                    {currentColumns.map((column, columnIndex) => (
                         <div
                             key={columnIndex}
-                            className="col-12 col-md-3"
+                            className={`col-12 col-md-3 ${styles.col12} ${styles.colMd3}`}
                         >
                             {column.map((image, index) => (
                                 <Link
                                     key={index}
-                                    href={image.imgSrc}
-                                    title={image.title}
+                                    href={image}
                                     className="image-link"
                                 >
                                     <Image
-                                        src={image.imgSrc}
+                                        src={image}
                                         alt="gallery-img"
                                         width={500}
                                         height={500}
@@ -188,15 +219,19 @@ export const Gallery = memo(() => {
                     ))}
 
                 </div>
-                <div className="text-center">
-                    <Button
-                        variant="btnBlack"
-                        btnText="View All"
-                        marginTop="mt-10"
-                    />
-                </div>
-            </div>
 
+                <div className={styles.textCenter}>
+                    <button
+                        className={`${btnStyles.btn} ${btnStyles.btnBlack} ${!hasMoreColumns ? styles.disabled : ''}`}
+                        onClick={loadMoreImages}
+                        disabled={!hasMoreColumns}
+                    >
+                        {hasMoreColumns ? 'View More' : 'No More Images'}
+                        <Icon icon="la:arrow-right" />
+                    </button>
+                </div>
+
+            </div>
         </section>
     );
 });

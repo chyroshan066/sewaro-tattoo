@@ -1,0 +1,116 @@
+.galleryWrap{
+  padding: 160px 0;
+  background: #F9F9F9 !important;
+  --title-offset: -60px;
+}
+.galleryWrap .row div{
+  padding: 0 10px;
+}
+.galleryWrap .row div a {
+  display: block;
+  margin-bottom: 20px;
+}
+.galleryWrap .row div img{
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.galleryWrap .row div img:hover{
+  filter: brightness(60%);
+}
+.textCenter {
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 55px;
+}
+.textCenter button.btnBlack{
+  font-family: var(--font-oswald), sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 20px 40px !important;
+  transition: background-color 0.3s ease !important;
+  display: inline-flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+  gap: 8px;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+.textCenter button.btnBlack:hover{
+  background-color: #444 !important;
+  color: #fff !important;
+}
+.textCenter button.btnBlack:disabled,
+.textCenter button.btnBlack.disabled {
+    background-color: #888 !important;
+    color: #ccc !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+.textCenter button.btnBlack:disabled:hover,
+.textCenter button.btnBlack.disabled:hover {
+    background-color: #888 !important;
+    color: #ccc !important;
+}
+.textCenter button.btnBlack .iconify {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.containerFluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.popupGallery .colMd3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 10px;
+}
+.mfpBottomBar{
+  display: none;
+}
+.chocolatOverlay {
+  background-color: #000 !important;
+  opacity: 0.9 !important;
+}
+.chocolatOverlay.chocolatVisible {
+  opacity: 0.9 !important;
+}
+.chocolatWrapper {
+  z-index: 99999 !important;
+}
+.chocolatLoader {
+  z-index: 100000 !important;
+}
+.chocolatDescription {
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--font-raleway), Raleway, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+  .popupGallery .col12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  .galleryWrap .row div {
+    padding: 0;
+  }
+  .galleryWrap .row div a {
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+}

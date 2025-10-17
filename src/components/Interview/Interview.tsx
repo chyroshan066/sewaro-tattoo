@@ -2,10 +2,11 @@
 
 import { Icon } from "@iconify/react";
 import { memo, useState } from "react";
+import styles from "./Interview.module.css";
 
 export const Interview = memo(() => {
     const [showModal, setShowModal] = useState(false);
-    const videoSrc = "https://www.youtube.com/embed/W_tIumKa8VY";
+    const videoSrc = "/images/interview.webm";
 
     const handlePlayClick = () => {
         setShowModal(true);
@@ -19,17 +20,17 @@ export const Interview = memo(() => {
         <>
             <section
                 id="interview"
-                className="interview-wrap"
+                className={styles.interviewWrap}
             >
                 <div
-                    className="interview-bg-img"
+                    className={styles.interviewBgImg}
                     style={{
-                        background: "url('images/banner-2.jpg')",
+                        background: "url('images/banner-2.webp')",
                         backgroundSize: "cover",
                         backgroundPosition: "center"
                     }}
                 >
-                    <div className="container interview-content">
+                    <div className={`custom-container ${styles.interviewContent}`}>
                         <div className="row">
                             <div className="col-md-8">
                                 <h2 style={{
@@ -40,18 +41,17 @@ export const Interview = memo(() => {
                                     textTransform: "capitalize",
                                     color: "#fff"
                                 }}>
-                                    &quot;Consider what you desire. Your tattoo artist will never tell you what tattoo to have.&quot;
+                                    &quot;Every mark tells a story. Every story deserves to be art.&quot;
                                 </h2>
-                                <div className="video-btn">
+                                <div className={styles.videoBtn}>
                                     <a
                                         onClick={handlePlayClick}
-                                        className="play-btn"
+                                        className={styles.playBtn}
                                         style={{ cursor: 'pointer' }}
                                     >
                                         <Icon icon="bi:play-fill" className="iconify" />
                                     </a>
                                     <a
-                                        className="btn"
                                         onClick={handlePlayClick}
                                         style={{
                                             cursor: 'pointer',
@@ -68,8 +68,7 @@ export const Interview = memo(() => {
                                     </a>
                                 </div>
                             </div>
-                            <div className="col-md-4">
-                            </div>
+                            <div className="col-md-4" />
                         </div>
                     </div>
                 </div>
@@ -78,7 +77,6 @@ export const Interview = memo(() => {
             {/* Video Modal */}
             {showModal && (
                 <div
-                    className="modal fade show"
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -94,7 +92,7 @@ export const Interview = memo(() => {
                     onClick={handleCloseModal}
                 >
                     <div
-                        className="modal-dialog"
+                        className={styles.modalDialog}
                         style={{
                             maxWidth: '800px',
                             width: '90%',
@@ -112,7 +110,7 @@ export const Interview = memo(() => {
                             }}
                         >
                             <div
-                                className="modal-body"
+                                className={styles.modalBody}
                                 style={{
                                     position: 'relative',
                                     padding: 0
@@ -120,7 +118,7 @@ export const Interview = memo(() => {
                             >
                                 <button
                                     type="button"
-                                    className="btn-close"
+                                    className={styles.btnClose}
                                     onClick={handleCloseModal}
                                     aria-label="Close"
                                     style={{
@@ -157,7 +155,7 @@ export const Interview = memo(() => {
                                             position: 'absolute',
                                             top: 0,
                                             left: 0,
-                                        }}></span>
+                                        }} />
                                     </span>
                                 </button>
                                 <div style={{
@@ -179,7 +177,7 @@ export const Interview = memo(() => {
                                             border: 'none',
                                             borderRadius: '4px'
                                         }}
-                                    ></iframe>
+                                    />
                                 </div>
                             </div>
                         </div>

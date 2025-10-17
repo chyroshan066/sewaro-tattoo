@@ -1,25 +1,29 @@
 "use client";
 
 import { memo } from "react";
-import { Button } from "./utility/Button/Button";
+import styles from "./Hero.module.css";
+import { Button } from "../utility/Button/Button";
 
 export const Hero = memo(() => (
     <section
         id="home"
-        className="billboard-wrap"
-        style={{ marginTop: 0, padding: 0 }}
+        className={styles.billboardWrap}
+        style={{
+            marginTop: 0,
+            padding: 0
+        }}
     >
         <div
-            className="billboard-bg-img"
+            className={styles.billboardBgImg}
             style={{
-                background: "url('/images/hero-banner.jpg')",
+                background: "url('/images/hero-banner.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
         >
-            <div className="container billboard-content">
-                <div className="row justify-content-center">
-                    <div className="col-md-8 col-lg-6">
+            <div className={`custom-container ${styles.billboardContent}`}>
+                <div className={`row ${styles.row} ${styles.justifyContentCenter}`}>
+                    <div className={`${styles.colMd8} ${styles.colLg6}`}>
                         <h1 style={{
                             fontFamily: "var(--font-rozhaOne), serif",
                             fontSize: 'clamp(60px, 8vw, 100px)',
@@ -30,13 +34,13 @@ export const Hero = memo(() => (
                             marginBottom: '20px',
                             textAlign: 'center'
                         }}>
-                            I&apos;m Void Sir.
+                            Sewaro Tattoo - Art That Lives With You
                         </h1>
                         <p style={{
                             textAlign: 'center',
                             marginBottom: '30px'
                         }}>
-                            Tattoos have their own unique power and magic. They not only beautify the body but also the psyche.
+                            Tattoos are the stories we choose to wear on our skin forever.
                         </p>
                         <div style={{
                             textAlign: 'center'
@@ -45,6 +49,7 @@ export const Hero = memo(() => (
                                 variant="btnOutline"
                                 btnText="Read More"
                                 marginTop="mt-10"
+                                href="/#about"
                             />
                         </div>
                     </div>

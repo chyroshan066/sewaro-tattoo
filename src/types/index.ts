@@ -24,7 +24,6 @@ export interface Service extends Name {
 
 export interface Testimonial extends Text {
     author: string;
-    tag: string;
 }
 
 export interface Gallery {

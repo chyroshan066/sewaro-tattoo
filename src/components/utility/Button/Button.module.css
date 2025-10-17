@@ -8,7 +8,6 @@
   overflow: hidden;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  /* margin-top: 40px; */
   border-radius: 0;
   align-items: center;
   justify-content: center;
@@ -44,7 +43,7 @@ a.btnOutline:hover{
 }
 
 /* Btn blank */
-a.btnBlank{
+.btnBlank{
   color: #111;
   padding: 0;
   margin: 22px 0 0 0;
@@ -64,11 +63,11 @@ a.btnBlank{
   text-decoration: none;
   border-radius: ;
 }
-a.btnBlank:hover{  
+.btnBlank:hover{  
   color: #444;
   border-bottom: 1px solid #444;
 }
-a.btnBlank .iconify {
+.btnBlank .iconify {
   margin-left: 0;
 } 
 

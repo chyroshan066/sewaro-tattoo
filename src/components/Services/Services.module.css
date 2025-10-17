@@ -1,0 +1,69 @@
+.servicesWrap{
+  text-align: center;
+}
+.servicesWrap .chart{
+  position: relative;
+  display: inline-block;
+  width: 290px;
+  height: 290px;
+}
+.servicesWrap .chart:before{
+  content: "";
+  border: 7px solid #EEEEEE;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%)translateY(-50%);
+  display: block;
+  width: 251px;
+  height: 251px;
+  border-radius: 50%;
+}
+.servicesWrap .chart .percent{
+  font-family: var(--font-oswald), Oswald;
+  font-size: 78px;
+  line-height: 294px;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+.servicesWrap .chart .percent:after{
+  position: relative;
+  content: '%';
+  font-weight: lighter;
+  padding-left: 3px;
+}
+.servicesWrap .chart p{
+  margin-top: 18px;
+  font-family: var(--font-oswald), Oswald;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111;
+}
+.servicesWrap .chart canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.servicesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.serviceItem {
+  flex: 0 0 calc(25% - 30px);
+  min-width: 250px;
+}
+
+@media (max-width: 1199px) {
+  .serviceItem {
+    flex: 0 0 calc(50% - 30px);
+  }
+}
+
+@media (max-width: 767px) {
+  .serviceItem {
+    flex: 0 0 100%;
+  }
+}
