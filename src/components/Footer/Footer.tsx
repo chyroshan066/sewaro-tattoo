@@ -1,18 +1,16 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo } from "react";
 import styles from "./Footer.module.css";
-import { AlertState, Link, Text } from "@/types";
+import { Link, Text } from "@/types";
 import { NAVLINKS } from "@/constants";
 import { InputField } from "../utility/InputField";
 import { SubscriptionFormData, SubscriptionFormSchema } from "@/middlewares/schema";
 import { Alert } from "../Alert";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { onSubscriptionSubmit } from "@/utils/subscriptionData";
 import { SubmitButton } from "../utility/Button/SubmitButton";
-import { useAlert } from "@/hooks/useAlert";
+import { useFormSubmission } from "@/hooks/useFormSubmission";
 
 interface List extends Link {
     name: string;
@@ -106,57 +104,25 @@ const FooterColumn = memo(({
 FooterColumn.displayName = "FooterColumn";
 
 export const Footer = memo(() => {
-    const { alertState, showAlert, hideAlert } = useAlert();
-
     const {
         register,
-        handleSubmit,
-        reset,
         formState: {
             errors,
-            isSubmitting,
-        }
-    } = useForm<SubscriptionFormData>({
+            isSubmitting
+        },
+        onFormSubmit,
+        isButtonDisabled,
+        alertState,
+        hideAlert,
+    } = useFormSubmission<SubscriptionFormData>({
+        schema: SubscriptionFormSchema,
         defaultValues: initialSubscriptionValues,
-        resolver: zodResolver(SubscriptionFormSchema),
-        mode: "onChange",
-        reValidateMode: "onChange",
-        criteriaMode: "all",
-        shouldFocusError: true,
+        onSubmit: onSubscriptionSubmit,
+        successMessage: "Thank you for subscribing! You'll receive our latest news and offers.",
+        successTitle: "Subscribed!",
+        errorTitle: "Subscription Failed",
+        errorMessage: "Something went wrong while subscribing. Please try again.",
     });
-
-    const handleSubscriptionSubmit = useCallback(async (data: SubscriptionFormData) => {
-        try {
-            await onSubscriptionSubmit(data);
-
-            showAlert(
-                "success",
-                "Thank you for subscribing! You'll receive our latest news and offers.",
-                "Successfully Subscribed!"
-            );
-
-            reset(initialSubscriptionValues);
-        } catch (error) {
-            const errorMessage = error instanceof Error
-                ? error.message
-                : "Something went wrong while subscribing. Please try again.";
-
-            showAlert(
-                "error",
-                errorMessage,
-                "Subscription Failed"
-            );
-
-            console.error('Subscription error:', error);
-        }
-    }, [reset, showAlert]);
-
-    const onSubscriptionFormSubmit = handleSubmit(handleSubscriptionSubmit);
-
-    const isButtonDisabled = useMemo(
-        () => isSubmitting,
-        [isSubmitting]
-    );
 
     return <>
         <Alert
@@ -245,7 +211,7 @@ export const Footer = memo(() => {
                             <FooterPara text="Subscribe to our newsletter for exclusive tattoo inspiration, special offers, and studio updates." />
 
                             <form
-                                onSubmit={onSubscriptionFormSubmit}
+                                onSubmit={onFormSubmit}
                                 noValidate
                             >
                                 <div

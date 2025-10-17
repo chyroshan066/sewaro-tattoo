@@ -1,7 +1,6 @@
 "use client";
 
 import { GALLERYCOLUMNS } from "@/constants";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useRef } from "react";

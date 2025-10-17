@@ -1,19 +1,17 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useMemo } from "react";
 import { Button } from "../utility/Button/Button";
 import { InputField } from "../utility/InputField";
 import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit } from "@/utils/contactData";
 import styles from "./Contact.module.css";
-import { AlertState, IconType, Text } from "@/types";
+import { IconType, Text } from "@/types";
 import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
 import { Alert } from "../Alert";
 import { SubmitButton } from "../utility/Button/SubmitButton";
-import { useAlert } from "@/hooks/useAlert";
+import { useFormSubmission } from "@/hooks/useFormSubmission";
 
 interface Branch {
     address: string;
@@ -26,6 +24,11 @@ interface Branch {
 
 interface GetIcon extends IconType, Text {
     href?: string;
+}
+
+interface InputFieldType {
+    id: "message" | "name" | "email" | "phone";
+    placeholder: string;
 }
 
 const initialValues: ContactFormData = {
@@ -98,58 +101,45 @@ const getIconList = (branch: typeof BRANCHES[0]): GetIcon[] => {
     return iconList;
 };
 
-export const Contact = memo(() => {
-    const { alertState, showAlert, hideAlert } = useAlert();
+const INPUTFIELDS: InputFieldType[] = [
+    {
+        id: "name",
+        placeholder: "Write your name here",
+    },
+    {
+        id: "email",
+        placeholder: "Write your email address",
+    },
+    {
+        id: "phone",
+        placeholder: "Write your Phone Number",
+    },
+    {
+        id: "message",
+        placeholder: "Write your messages here",
+    },
+];
 
+export const Contact = memo(() => {
     const {
         register,
-        handleSubmit,
-        reset,
         formState: {
             errors,
-            isSubmitting,
-        }
-    } = useForm<ContactFormData>({
+            isSubmitting
+        },
+        onFormSubmit,
+        isButtonDisabled,
+        alertState,
+        hideAlert,
+    } = useFormSubmission<ContactFormData>({
+        schema: ContactFormSchema,
         defaultValues: initialValues,
-        resolver: zodResolver(ContactFormSchema),
-        mode: "onChange", // Enable real-time validation for better UX
-        reValidateMode: "onChange", // Re-validate on every change
-        criteriaMode: "all", // Show all validation errors
-        shouldFocusError: true, // Focus on error field
+        onSubmit: onSubmit,
+        successMessage: "Thank you! Your message has been sent. We look forward to serving you.",
+        successTitle: "Message Sent!",
+        errorTitle: "Sending Failed",
+        errorMessage: "Something went wrong while sending your message. Please try again.",
     });
-
-    const handleFormSubmit = useCallback(async (data: ContactFormData) => {
-        try {
-            await onSubmit(data);
-
-            showAlert(
-                "success",
-                "Thank you! Your message has been sent. We look forward to serving you.",
-                "Message Sent!"
-            );
-
-            reset(initialValues);
-        } catch (error) {
-            const errorMessage = error instanceof Error
-                ? error.message
-                : "Something went wrong while sending your message. Please try again.";
-
-            showAlert(
-                "error",
-                errorMessage,
-                "Sending Failed"
-            );
-
-            console.error('Form submission error:', error);
-        }
-    }, [reset, showAlert]);
-
-    const onFormSubmit = handleSubmit(handleFormSubmit);
-
-    const isButtonDisabled = useMemo(
-        () => isSubmitting,
-        [isSubmitting]
-    );
 
     const buttonText = useMemo(
         () => isSubmitting ? "Sending..." : "Send It",
@@ -269,46 +259,21 @@ export const Contact = memo(() => {
                                 noValidate
                             >
 
-                                <div className={styles.formGroup}>
-                                    <InputField
-                                        id="name"
-                                        placeholder="Write your name here"
-                                        register={register("name")}
-                                        error={errors.name?.message}
-                                        disabled={isSubmitting}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <InputField
-                                        id="email"
-                                        placeholder="Write your email address"
-                                        register={register("email")}
-                                        error={errors.email?.message}
-                                        disabled={isSubmitting}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <InputField
-                                        id="phone"
-                                        placeholder="Write your Phone Number"
-                                        register={register("phone")}
-                                        error={errors.phone?.message}
-                                        disabled={isSubmitting}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <InputField
-                                        id="message"
-                                        placeholder="Write your messages here"
-                                        register={register("message")}
-                                        isTextarea={true}
-                                        error={errors.message?.message}
-                                        disabled={isSubmitting}
-                                    />
-                                </div>
+                                {INPUTFIELDS.map((field, index) => (
+                                    <div
+                                        key={index}
+                                        className={styles.formGroup}
+                                    >
+                                        <InputField
+                                            id={field.id}
+                                            placeholder={field.placeholder}
+                                            register={register(field.id)}
+                                            isTextarea={field.id === "message"}
+                                            error={errors[field.id]?.message}
+                                            disabled={isSubmitting}
+                                        />
+                                    </div>
+                                ))}
 
                                 <SubmitButton
                                     btnText={buttonText}
