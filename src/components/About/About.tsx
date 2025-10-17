@@ -43,11 +43,11 @@ export const About = memo(() => {
                     />
 
                     <div className={styles.shortDescription}>
-                        <p>Founded by renowned tattoo artist Sagar Limbu, Sewaro Tattoo has been Nepal's trusted tattoo destination since 2001, bringing exceptional body art to four strategic locations across the country.</p>
+                        <p>Founded by renowned tattoo artist Sagar Limbu, Sewaro Tattoo has been Nepal&apos;s trusted tattoo destination since 2001, bringing exceptional body art to four strategic locations across the country.</p>
                         <p>With studios in <b>Mukti Chowk, Birtamode; Near Taxi Stand, Damak; Biratnagar Road (opposite Radha Krishna Mandir), Itahari;</b> and <b>Jawalakhel under SBI Bank, Lalitpur,</b> we make professional tattoo artistry accessible throughout Nepal..</p>
                         {showAll && (
                             <>
-                                <p>Our experienced team specializes in custom designs, cover-ups, traditional artwork, and modern tattoo styles, maintaining the highest standards of hygiene and precision. Whether you're in Jhapa, Sunsari, or Lalitpur, each Sewaro Tattoo studio delivers the same commitment to quality, safety, and bringing your unique vision to life.</p>
+                                <p>Our experienced team specializes in custom designs, cover-ups, traditional artwork, and modern tattoo styles, maintaining the highest standards of hygiene and precision. Whether you&apos;re in Jhapa, Sunsari, or Lalitpur, each Sewaro Tattoo studio delivers the same commitment to quality, safety, and bringing your unique vision to life.</p>
                                 <p><b>Why choose Sewaro Tattoo?</b></p>
                                 <p>
                                     ● 20+ years of tattooing excellence <br />
@@ -57,7 +57,7 @@ export const About = memo(() => {
                                     ● Professional aftercare guidance <br />
                                     ● Led by founder and master artist Sagar Limbu <br />
                                 </p>
-                                <p>Visit any of our studios in Birtamode, Damak, Itahari, or Lalitpur to experience the artistry that has made Sewaro Tattoo Eastern Nepal's most trusted tattoo destination.</p>
+                                <p>Visit any of our studios in Birtamode, Damak, Itahari, or Lalitpur to experience the artistry that has made Sewaro Tattoo Eastern Nepal&apos;s most trusted tattoo destination.</p>
                             </>
                         )}
                         <button

@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import Script from 'next/script';
 import JQueryProvider from '@/utils/jQueryProvider';
 import "./vendor.css";
+import { sewaroTattooServicesStructuredData, sewaroTattooSpecialtiesStructuredData, sewaroTattooStructuredData } from '@/constants';
 
 const oswald = localFont({
   src: [
@@ -277,13 +278,25 @@ export default function RootLayout({
     <html lang="en">
 
       <head>
-        {/* <script
+        <script
           type="application/ld+json"
           // "dangerouslySetInnerHTML" is a way to inject raw HTML content into a React component.
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(dentalServicesStructuredData),  // "__html" property accepts raw HTML/text
+            __html: JSON.stringify(sewaroTattooStructuredData),  // "__html" property accepts raw HTML/text
           }}
-        /> */}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(sewaroTattooServicesStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(sewaroTattooSpecialtiesStructuredData),
+          }}
+        />
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
