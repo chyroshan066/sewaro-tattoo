@@ -14,8 +14,8 @@ export const NAVLINKS: NavLink[] = [
         href: "/#gallery",
     },
     {
-        name: "Team",
-        href: "/#team",
+        name: "Artist",
+        href: "/#artist",
     },
     {
         name: "Contact",
