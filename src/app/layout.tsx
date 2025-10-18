@@ -248,14 +248,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     siteName: "Sewaro Tattoo",
-    // images: [
-    //   {
-    //     url: "/images/preview.webp",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Sewaro Tattoo Studio Preview",
-    //   }
-    // ],
+    images: [
+      {
+        url: "/images/preview.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sewaro Tattoo Studio Preview",
+      }
+    ],
   },
   category: "art",
   classification: "Tattoo Studio",

@@ -90,46 +90,47 @@ export const Alert = memo(({
     return (
         <div
             className={`
-    fixed top-4 right-4 left-4 sm:left-auto w-full max-w-md transform transition-all duration-300 ease-in-out z-[70]
-    ${isAnimating
-                    ? 'translate-x-0 opacity-100'
-                    : 'translate-x-full opacity-0'  // Same animation for all screen sizes
+                fixed top-2 right-4 max-w-sm w-full transform transition-all duration-300 ease-in-out z-700000
+                ${isAnimating
+                    ? 'translate-x-0 opacity-100 scale-100'
+                    : 'translate-x-full opacity-0 scale-95'
                 }
-    ${className}
-  `}
+                ${className}
+            `}
             role="alert"
             aria-live="polite"
         >
-            <div className={`${styles.container} h-24 px-6 flex items-center gap-4 backdrop-blur-sm`}>
-                {/* Alert Icon - Increased size */}
-                <div className={`${styles.icon} flex-shrink-0`}>
-                    <Icon icon={styles.name} className="text-2xl" />
+            <div className={`${styles.container} border rounded-lg p-1 shadow-xl flex items-start gap-3 backdrop-blur-sm`}>
+
+                {/* Alert Icon */}
+                <div className={`${styles.icon} flex-shrink-0 mt-0.5`}>
+                    <Icon icon={styles.name} className="text-4xl" />
                 </div>
 
                 <div className="flex-1 min-w-0">
                     {title && (
-                        <h4 className={`${styles.title} font-bold text-lg uppercase tracking-wider mb-1`}>
+                        <h4 className={`${styles.title} font-semibold text-sm mb-1`}>
                             {title}
                         </h4>
                     )}
-                    <p className={`${styles.message} text-base leading-snug`}>
+                    <p className={`${styles.message} text-sm leading-relaxed`}>
                         {message}
                     </p>
                 </div>
 
-                {/* Close button - Increased size */}
+                {/* Close button */}
                 <button
                     onClick={handleDismiss}
-                    className={`${styles.closeButton} flex-shrink-0 p-1 transition-all duration-200 focus:outline-none cursor-pointer`}
+                    className={`${styles.closeButton} flex-shrink-0 p-1 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-current cursor-pointer`}
                     aria-label="Dismiss alert"
                 >
-                    <Icon icon="material-symbols-light:close-rounded" className="text-lg" />
+                    <Icon icon="material-symbols-light:close-rounded" className="text-4xl" />
                 </button>
             </div>
 
             {/* Auto-dismiss progress bar */}
             {autoDismiss && isVisible && (
-                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[var(--black-alpha-15)] overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 rounded-b-lg overflow-hidden">
                     <div
                         className="h-full bg-current opacity-30 origin-left"
                         style={{

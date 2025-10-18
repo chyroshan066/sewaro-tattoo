@@ -183,7 +183,7 @@ export const Gallery = memo(() => {
         >
             <div className="custom-container">
                 <TitleHeader
-                    text1="Check My"
+                    text1="Check Our"
                     text2="Gallery"
                 />
             </div>

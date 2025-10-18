@@ -293,29 +293,6 @@
     padding-left: 15px;
   }
 
-  /* BILLBOARD */
-  .billboard-wrap{
-    margin-top: 0;
-    padding: 0;
-  }
-  .billboard-wrap .billboard-bg-img{
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content p{
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 200%;
-    letter-spacing: 0.02em;
-    color: #fff;
-    font-family: var(--font-raleway), sans-serif;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content a.btn{
-    margin-top: 35px;
-  }
-
   /* ARTICLES */
   .articles-wrap .container{
     max-width: 1583px;
@@ -370,13 +347,6 @@
   }
 }
 
-@media screen and (max-width: 576px){
-  /* BILLBOARD */
-  .billboard-wrap .billboard-bg-img .billboard-content h1{
-    font-size: 60px;
-  } 
-}
-
 @media screen and (max-width:768px){
   /* ARTICLES   */
   .articles-wrap .article-post-item{
@@ -397,58 +367,6 @@
   .col-md-6 {
       flex: 0 0 50%;
       max-width: 50%;
-  }
-}
-
-@media screen and (max-width: 799px) {
-  /* BILLBOARD */
-  .billboard-wrap .billboard-bg-img .billboard-content h1 {
-    font-size: clamp(50px, 10vw, 70px) !important;
-  }
-}
-
-@media screen and (max-width:800px){
-  /* BILLBOARD */
-  .billboard-wrap .billboard-bg-img .billboard-content h1{
-    font-size: 90px;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content p{
-    font-size: 18px;
-  }
-  .billboard-content .row.justify-content-end .col-md-6 {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 999px) and (min-width: 800px) {
-  /* BILLBOARD */
-  .billboard-wrap .billboard-bg-img .billboard-content {
-    padding: 0 20px;
-  } 
-  .billboard-wrap .billboard-bg-img .billboard-content .row.justify-content-center {
-    justify-content: center !important;
-    margin: 0 auto;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content .col-md-8 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
-    text-align: center;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content h1 {
-    font-size: 85px !important;
-    line-height: 90% !important;
-    margin-bottom: 25px !important;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content p {
-    font-size: 18px !important;
-    line-height: 180% !important;
-    margin-bottom: 35px !important;
-    padding: 0 10px;
-  }
-  .billboard-wrap .billboard-bg-img .billboard-content .btn {
-    padding: 18px 35px !important;
-    font-size: 16px !important;
-    margin-top: 0 !important;
   }
 }
 

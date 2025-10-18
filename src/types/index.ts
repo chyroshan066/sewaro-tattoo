@@ -1,8 +1,13 @@
+interface Social {
+    instagram: string;
+    facebook: string;
+}
+
 export interface Link {
     href: string;
 }
 
-interface Name {
+export interface Name {
     name: string;
 }
 
@@ -14,8 +19,16 @@ export interface IconType {
     icon: string;
 }
 
-export interface NavLink extends Link, Name {}
+export interface Title {
+    title: string;
+}
 
+export interface ImgSrc {
+    imgSrc: string;
+}
+
+export interface NavLink extends Link, Name {}
+export interface Gallery extends Title, ImgSrc {}
 export interface SocialLink extends Link, IconType {}
 
 export interface Service extends Name {
@@ -24,11 +37,6 @@ export interface Service extends Name {
 
 export interface Testimonial extends Text {
     author: string;
-}
-
-export interface Gallery {
-    imgSrc: string;
-    title: string;
 }
 
 export interface Article extends Link, Gallery {
@@ -45,4 +53,8 @@ export interface AlertState {
     type: "success" | "error";
     title?: string;
     message: string;
+}
+
+export interface SocialLinks {
+    social: Social;
 }
