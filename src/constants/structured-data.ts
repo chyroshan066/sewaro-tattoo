@@ -57,6 +57,15 @@ interface ListItem {
   item: TattooService;
 }
 
+interface LocalBusiness {
+  "@type": "LocalBusiness";
+  name: string;
+  address: PostalAddress;
+  telephone: string | string[];
+  geo: GeoCoordinates;
+  aggregateRating?: AggregateRating;
+}
+
 interface TattooStudioStructuredData {
   "@context": "https://schema.org";
   "@type": "TattooParlor";
@@ -73,7 +82,7 @@ interface TattooStudioStructuredData {
     "@type": "Person";
     name: string;
   };
-  location: PlaceWithRating[];
+  location: LocalBusiness[];
 }
 
 interface TattooServicesStructuredData {
@@ -128,96 +137,96 @@ export const sewaroTattooStructuredData: TattooStudioStructuredData = {
   },
 
   "location": [
-    {
-      "@type": "Place",
-      "name": "Sewaro Tattoo - Birtamode",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mukti Chowk",
-        "addressLocality": "Birtamode",
-        "addressRegion": "Jhapa",
-        "postalCode": "57204",
-        "addressCountry": "NP"
-      },
-      "telephone": "+977-9702037757",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "26.64341",
-        "longitude": "87.99132"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "ratingCount": "4"
-      }
+  {
+    "@type": "LocalBusiness",
+    "name": "Sewaro Tattoo - Birtamode",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mukti Chowk",
+      "addressLocality": "Birtamode",
+      "addressRegion": "Jhapa",
+      "postalCode": "57204",
+      "addressCountry": "NP"
     },
-    {
-      "@type": "Place",
-      "name": "Sewaro Tattoo - Damak",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Near Taxi Stand",
-        "addressLocality": "Damak",
-        "addressRegion": "Jhapa",
-        "postalCode": "57217",
-        "addressCountry": "NP"
-      },
-      "telephone": "+977-9824949006",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "26.65933",
-        "longitude": "87.69877"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "3.9",
-        "ratingCount": "10"
-      }
+    "telephone": "+977-9702037757",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "26.64341",
+      "longitude": "87.99132"
     },
-    {
-      "@type": "Place",
-      "name": "Sewaro Tattoo - Itahari",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Biratnagar Road, Opposite Radha Krishna Mandir",
-        "addressLocality": "Itahari",
-        "addressRegion": "Sunsari",
-        "postalCode": "56705",
-        "addressCountry": "NP"
-      },
-      "telephone": [
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "4"
+    }
+  },
+  {
+    "@type": "LocalBusiness",
+    "name": "Sewaro Tattoo - Damak",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near Taxi Stand",
+      "addressLocality": "Damak",
+      "addressRegion": "Jhapa",
+      "postalCode": "57217",
+      "addressCountry": "NP"
+    },
+    "telephone": "+977-9824949006",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "26.65933",
+      "longitude": "87.69877"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "3.9",
+      "ratingCount": "10"
+    }
+  },
+  {
+    "@type": "LocalBusiness",
+    "name": "Sewaro Tattoo - Itahari",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Biratnagar Road, Opposite Radha Krishna Mandir",
+      "addressLocality": "Itahari",
+      "addressRegion": "Sunsari",
+      "postalCode": "56705",
+      "addressCountry": "NP"
+    },
+    "telephone": [
         "+977-9701723788", 
         "+977-9841546533"
     ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "26.65979",
-        "longitude": "87.27498"
-      }
-    },
-    {
-      "@type": "Place",
-      "name": "Sewaro Tattoo - Lalitpur",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jawalakhel, Under SBI Bank",
-        "addressLocality": "Lalitpur",
-        "addressRegion": "Bagmati",
-        "postalCode": "44700",
-        "addressCountry": "NP"
-      },
-      "telephone": "+977-9825910833",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "27.67346",
-        "longitude": "85.31438"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.6",
-        "ratingCount": "39"
-      }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "26.65979",
+      "longitude": "87.27498"
     }
+  },
+  {
+    "@type": "LocalBusiness",
+    "name": "Sewaro Tattoo - Lalitpur",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jawalakhel, Under SBI Bank",
+      "addressLocality": "Lalitpur",
+      "addressRegion": "Bagmati",
+      "postalCode": "44700",
+      "addressCountry": "NP"
+    },
+    "telephone": "+977-9825910833",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "27.67346",
+      "longitude": "85.31438"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "ratingCount": "39"
+    }
+  },
   ]
 };
 
