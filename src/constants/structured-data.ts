@@ -97,7 +97,7 @@ export const sewaroTattooStructuredData: TattooStudioStructuredData = {
   "@type": "TattooParlor",
   "name": "Sewaro Tattoo",
   "description": "Professional tattoo studio in Nepal since 2001 specializing in custom tattoos, traditional artwork, modern tattoo styles, piercing services, and tattoo cover-ups. Expert tattoo artists serving Birtamode, Damak, Itahari, and Lalitpur.",
-  "url": process.env.NEXT_PUBLIC_BASE_URL,
+  "url": "https://www.sewarotattoo.com",
   
   "email": "sewaro.tattoo2001@gmail.com",
   "openingHours": "Mo-Su 10:00-19:00",
@@ -113,7 +113,7 @@ export const sewaroTattooStructuredData: TattooStudioStructuredData = {
     "@type": "ScheduleAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL}/#contact`
+      "urlTemplate": "https://www.sewarotattoo.com/#contact"
     },
     "result": {
       "@type": "Appointment",
