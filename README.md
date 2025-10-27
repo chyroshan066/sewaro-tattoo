@@ -222,5 +222,3 @@ This project is proprietary software developed specifically for Sewaro Tattoo.
 **Built with ❤️ for Sewaro Tattoo**
 
 *For any questions or support regarding this website, contact **[chyroshan066](https://github.com/chyroshan066)**.*
-
-aga
