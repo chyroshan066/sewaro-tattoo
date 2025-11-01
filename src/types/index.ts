@@ -3,6 +3,10 @@ interface Social {
     facebook: string;
 }
 
+interface Date {
+    date: string;
+}
+
 export interface Link {
     href: string;
 }
@@ -30,6 +34,8 @@ export interface ImgSrc {
 export interface NavLink extends Link, Name {}
 export interface Gallery extends Title, ImgSrc {}
 export interface SocialLink extends Link, IconType {}
+export interface Article extends Link, Gallery, Date {}
+export interface Blog extends Link, ImgSrc, Title, Date{}
 
 export interface Service extends Name {
     percent: number;
@@ -39,9 +45,6 @@ export interface Testimonial extends Text {
     author: string;
 }
 
-export interface Article extends Link, Gallery {
-    date: string;
-}
 
 export interface Btn {
     variant: string;
