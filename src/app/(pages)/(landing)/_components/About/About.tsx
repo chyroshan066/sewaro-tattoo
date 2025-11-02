@@ -3,9 +3,9 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { memo, useState } from "react";
-import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
 import styles from "./About.module.css";
-import btnStyles from "../utility/Button/Button.module.css"
+import btnStyles from "@/components/utility/Button/Button.module.css"
+import { TitleHeader } from "@/components/utility/TitleHeader/TitleHeader";
 
 export const About = memo(() => {
     const [showAll, setShowAll] = useState(false);

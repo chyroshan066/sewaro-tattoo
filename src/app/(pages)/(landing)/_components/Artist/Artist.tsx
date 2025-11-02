@@ -1,10 +1,10 @@
 "use client";
 
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { memo } from "react";
 import styles from './Artist.module.css';
-import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
+import { TitleHeader } from "@/components/utility/TitleHeader/TitleHeader";
 import { ImgSrc, Name, SocialLinks, Title } from "@/types";
 
 interface FeaturedArtist extends Name, Title, ImgSrc, SocialLinks {
@@ -12,9 +12,9 @@ interface FeaturedArtist extends Name, Title, ImgSrc, SocialLinks {
     specialties: string[];
 }
 
-interface TeamArtist extends Name, ImgSrc, SocialLinks {
-    specialty: string;
-}
+// interface TeamArtist extends Name, ImgSrc, SocialLinks {
+//     specialty: string;
+// }
 
 const featuredArtist: FeaturedArtist = {
     name: "Sagar Limbu",

@@ -4,9 +4,9 @@ import { GALLERYCOLUMNS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect, useRef, useState, useCallback } from "react";
-import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
+import { TitleHeader } from "@/components/utility/TitleHeader/TitleHeader";
 import styles from "./Gallery.module.css";
-import btnStyles from "../utility/Button/Button.module.css";
+import btnStyles from "@/components/utility/Button/Button.module.css";
 import { Icon } from "@iconify/react";
 
 interface ChocolatInstance {

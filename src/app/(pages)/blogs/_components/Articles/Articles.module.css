@@ -1,3 +1,6 @@
+.articlesWrap{
+  padding: 20px 0 164px 0px;
+}
 .articlesWrap .container{
   max-width: 1583px;
 }
@@ -64,6 +67,12 @@
   }
   .articlesWrap .articlePostItem h4{
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .articlesWrap{
+    padding-top: 164px;
   }
 }
 

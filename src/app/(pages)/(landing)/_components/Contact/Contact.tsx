@@ -2,15 +2,15 @@
 
 import { Icon } from "@iconify/react";
 import { memo, useMemo } from "react";
-import { Button } from "../utility/Button/Button";
-import { InputField } from "../utility/InputField";
+import { Button } from "@/components/utility/Button/Button";
+import { InputField } from "@/components/utility/InputField";
 import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
 import { onSubmit } from "@/utils/contactData";
 import styles from "./Contact.module.css";
 import { IconType, Text } from "@/types";
-import { TitleHeader } from "../utility/TitleHeader/TitleHeader";
-import { Alert } from "../Alert";
-import { SubmitButton } from "../utility/Button/SubmitButton";
+import { TitleHeader } from "@/components/utility/TitleHeader/TitleHeader";
+import { Alert } from "@/components/Alert";
+import { SubmitButton } from "@/components/utility/Button/SubmitButton";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
 
 interface Branch {

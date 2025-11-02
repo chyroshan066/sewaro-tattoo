@@ -18,6 +18,10 @@ export const NAVLINKS: NavLink[] = [
         href: "/#artist",
     },
     {
+        name: "Blogs",
+        href: "/blogs",
+    },
+    {
         name: "Contact",
         href: "/#contact",
     },

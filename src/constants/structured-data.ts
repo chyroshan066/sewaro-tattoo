@@ -7,15 +7,6 @@ interface PostalAddress {
   addressCountry: string;
 }
 
-interface PlaceWithRating {
-  "@type": "Place";
-  name: string;
-  address: PostalAddress;
-  telephone: string | string[];
-  geo: GeoCoordinates;
-  aggregateRating?: AggregateRating; 
-}
-
 interface AggregateRating {
   "@type": "AggregateRating";
   ratingValue: string;

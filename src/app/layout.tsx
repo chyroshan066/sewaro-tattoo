@@ -7,6 +7,9 @@ import Script from 'next/script';
 import JQueryProvider from '@/utils/jQueryProvider';
 import "./vendor.css";
 import { sewaroTattooServicesStructuredData, sewaroTattooSpecialtiesStructuredData, sewaroTattooStructuredData } from '@/constants';
+import { Preloader } from '@/components/Preloader/Preloader';
+import { Header } from '@/components/Header/Header';
+import { Footer } from '@/components/Footer/Footer';
 
 const oswald = localFont({
   src: [
@@ -318,7 +321,10 @@ export default function RootLayout({
         data-bs-smooth-scroll="true"
       >
         <JQueryProvider>
+          <Preloader />
+          <Header />
           {children}
+          <Footer />
         </JQueryProvider>
         <AnalyticsWrapper />
 

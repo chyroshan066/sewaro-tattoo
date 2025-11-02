@@ -1,10 +1,10 @@
 import { memo } from "react";
-import styles from "./Blogs.module.css";
+import styles from "./Articles.module.css";
 import Link from "next/link";
 import { BLOGS } from "@/constants/blogs";
 import Image from "next/image";
 
-export const Blogs = memo(() => (
+export const Articles = memo(() => (
     <section
         id="articles"
         className={styles.articlesWrap}
@@ -44,4 +44,4 @@ export const Blogs = memo(() => (
     </section>
 ));
 
-Blogs.displayName = "Blogs";
+Articles.displayName = "Articles";

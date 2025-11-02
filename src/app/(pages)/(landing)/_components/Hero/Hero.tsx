@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 import styles from "./Hero.module.css";
-import { Button } from "../utility/Button/Button";
+import { Button } from "@/components/utility/Button/Button";
 
 export const Hero = memo(() => (
     <section
