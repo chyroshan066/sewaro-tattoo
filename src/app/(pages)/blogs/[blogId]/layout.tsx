@@ -75,7 +75,7 @@ export default function BlogLayout({
             "name": "Sewaro Tattoo",
             "logo": {
                 "@type": "ImageObject",
-                "url": `/images/logo.webp`
+                "url": `${baseUrl}/images/logo.webp`
             }
         },
         "datePublished": new Date(blogPost.date).toISOString(),

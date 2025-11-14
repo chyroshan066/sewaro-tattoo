@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import localFont from "next/font/local";
@@ -265,11 +265,12 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   applicationName: "Sewaro Tattoo",
   generator: "Next.js",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

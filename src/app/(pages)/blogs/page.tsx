@@ -4,6 +4,9 @@ import { Articles } from "./_components/Articles/Articles";
 export const metadata: Metadata = {
     title: 'Blog - Sewaro Tattoo Studio | Tattoo Tips & Insights',
     description: 'Explore tattoo care tips, design inspiration, and artist insights from Sewaro Tattoo Studio in Birtamode.',
+    alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs`,
+    },
     openGraph: {
         title: 'Blog - Sewaro Tattoo Studio',
         description: 'Explore tattoo care tips, design inspiration, and artist insights from Sewaro Tattoo Studio in Birtamode.',

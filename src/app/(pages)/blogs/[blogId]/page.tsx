@@ -65,7 +65,7 @@ const BlogDetail = async ({
                 {blogPost.imgSrc && (
                     <Image
                         src={blogPost.imgSrc}
-                        alt={blogPost.title}
+                        alt={`${blogPost.title} - Sewaro Tattoo Birtamode`}
                         fill
                         style={{
                             objectFit: 'cover',
