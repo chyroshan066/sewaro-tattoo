@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',  // '*' means all search engine bots (Googlebot, Bingbot, etc.)
       allow: '/',  // '/' means allow crawling of the entire root directory
-      disallow: ['/api/', '/admin/'], // "disallow" prevents search engines from wasting time on irrelevant pages.
+      disallow: ['/_next/static/', '/_next/image/',], // "disallow" prevents search engines from wasting time on irrelevant pages.
     },
     sitemap: 'https://www.sewarotattoo.com/sitemap.xml',
   };

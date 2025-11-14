@@ -33,7 +33,7 @@ export async function generateMetadata({
             authors: [blogPost.author],
             images: [
                 {
-                    url: blogPost.imgSrc,
+                    url: `${baseUrl}${blogPost.imgSrc}`,
                     width: 1200,
                     height: 630,
                     alt: blogPost.title,
@@ -44,7 +44,7 @@ export async function generateMetadata({
             card: 'summary_large_image',
             title: blogPost.title,
             description: blogPost.content.introduction || '',
-            images: [blogPost.imgSrc],
+            images: [`${baseUrl}${blogPost.imgSrc}`],
         },
     };
 }

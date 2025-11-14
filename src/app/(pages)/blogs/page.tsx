@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Blog - Sewaro Tattoo Studio',
         description: 'Explore tattoo care tips, design inspiration, and artist insights.',
-        images: ['https://yoursite.com/images/blog-og-image.jpg'],
+        images: [`${process.env.NEXT_PUBLIC_BASE_URL}/images/articles/article1.webp`],
     },
 };
 
