@@ -30,7 +30,8 @@ const featuredArtist: FeaturedArtist = {
         "Traditional Artwork",
         "Portrait Tattoos",
         "Cover-ups & Modifications",
-        "Black & Grey Realism"
+        "Black & Grey Realism",
+        "Piercing"
     ],
     social: {
         instagram: "https://instagram.com/sagarlimbu",

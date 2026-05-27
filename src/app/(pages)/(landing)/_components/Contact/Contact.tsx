@@ -53,14 +53,14 @@ const BRANCHES: Branch[] = [
         phone: 9824949006,
         addressLink: "https://www.google.com/maps/place/Sewaro+tattoo/@26.6591162,87.6962376,17z/data=!4m14!1m7!3m6!1s0x39e59153ece186b7:0xd41001628aabed1!2sSewaro+tattoo!8m2!3d26.6591114!4d87.6988125!16s%2Fg%2F11h4pl91dr!3m5!1s0x39e59153ece186b7:0xd41001628aabed1!8m2!3d26.6591114!4d87.6988125!16s%2Fg%2F11h4pl91dr?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D",
     },
-    {
-        address: "Biratnagar Road - Radha Krishna Mandir Opposite",
-        city: "Itahari",
-        district: "Sunsari",
-        phone: 9701723788,
-        phone2: 9841546533,
-        addressLink: "",
-    },
+    // {
+    //     address: "Biratnagar Road - Radha Krishna Mandir Opposite",
+    //     city: "Itahari",
+    //     district: "Sunsari",
+    //     phone: 9701723788,
+    //     phone2: 9841546533,
+    //     addressLink: "",
+    // },
     {
         address: "Jawlakhel under SBI Bank",
         city: "Lalitpur",
